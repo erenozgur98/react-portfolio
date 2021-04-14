@@ -6,6 +6,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         }}
         height="90vh"
       />
+      <Footer />
     </>
   );
 }
