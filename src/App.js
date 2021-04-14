@@ -17,7 +17,7 @@ function App() {
       <Route path="/about" exact page={About} />
       <Route path="/projects" exact page={Projects} />
     </Router>
-    {/* <Snake /> */}
+    <Snake />
       <Particles
         params={{
           "particles": {
@@ -37,7 +37,6 @@ function App() {
             }
           }
         }}
-        height="90vh"
       />
       <Footer />
     </>

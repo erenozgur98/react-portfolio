@@ -6,7 +6,7 @@ import '../styles/style.css';
 const HomePage = () => {
     return (
         <div>
-         {/* <Snake /> */}
+         
         </div>
     )
 }
