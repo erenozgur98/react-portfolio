@@ -25,6 +25,14 @@ function Navbar() {
                             Projects
                 </Link>
                     </li>
+                    <li className="nav-item bg-light">
+                        <Link
+                            to="/games"
+                            className={window.location.pathname === "/projects" ? "nav-link active" : "nav-link"}
+                        >
+                            Games
+                </Link>
+                    </li>
                 </ul>
             </div>
         </nav>
