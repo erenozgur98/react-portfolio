@@ -1,7 +1,7 @@
 import './styles/style.css';
 import HomePage from './pages/HomePage';
 import Particles from 'react-particles-js';
-import Snake from 'react-simple-snake';
+// import Snake from 'react-simple-snake';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
