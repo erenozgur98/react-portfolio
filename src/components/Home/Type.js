@@ -9,6 +9,7 @@ function Type() {
                     "Web Developer",
                     "Passionate About Coding",
                     "Fast Learner",
+                    "JavaScript, React.js, MongoDB",
                 ],
                 autoStart: true,
                 loop: true,
