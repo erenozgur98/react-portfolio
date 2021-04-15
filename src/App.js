@@ -1,12 +1,12 @@
 import './styles/style.css';
-import HomePage from './pages/HomePage';
+import HomePage from './components/Home/Home';
 import Particles from 'react-particles-js';
 // import Snake from 'react-simple-snake';
-import About from './pages/About';
-import Projects from './pages/Projects';
+import About from './components/About/About';
+import Projects from './components/Projects/Projects';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
