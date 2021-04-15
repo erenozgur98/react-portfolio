@@ -13,11 +13,11 @@ function App() {
       <>
     <Router>
       <Navbar />
-      <Route path="/" exact page={HomePage} />
-      <Route path="/about" exact page={About} />
-      <Route path="/projects" exact page={Projects} />
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/projects" component={Projects} />
     </Router>
-    <Snake />
+    {/* <Snake /> */}
       <Particles
         params={{
           "particles": {

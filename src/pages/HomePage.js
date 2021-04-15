@@ -1,13 +1,12 @@
 import React from 'react'
-import Snake from 'react-simple-snake';
-import Particles from 'react-particles-js';
+import { Container, Row, Col } from 'react-bootstrap';
 import '../styles/style.css';
 
 const HomePage = () => {
     return (
-        <div>
-         
-        </div>
+        <section>
+            
+        </section>
     )
 }
 
