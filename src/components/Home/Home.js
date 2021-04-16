@@ -10,9 +10,9 @@ const HomePage = () => {
             <Container fluid className="home-section" id="home">
                 <Row>
                     <Col md={7} className="home-header">
-                        {/* <h2 className="heading-name">
+                        <h2 className="heading-name">
                             Hey there! I'm Yigit Eren Ozgur
-                            </h2> */}
+                            </h2>
                         <div className="type">
                             <Type />
                         </div>

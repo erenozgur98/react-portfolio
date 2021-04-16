@@ -6,6 +6,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.home-section {
+   text-align: center;
+}
+
+
 .navbar {
     border-bottom: solid whitesmoke 2px;
     /* position: fixed; */
