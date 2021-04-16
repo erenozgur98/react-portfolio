@@ -3,31 +3,11 @@ import Particles from 'react-particles-js';
 
 function Particle() {
     return (
-        // <Particles
-        //     params={{
-        //         "particles": {
-        //             "number": {
-        //                 "value": 50
-        //             },
-        //             "size": {
-        //                 "value": 3
-        //             }
-        //         },
-        //         "interactivity": {
-        //             "events": {
-        //                 "onhover": {
-        //                     "enable": true,
-        //                     "mode": "repulse"
-        //                 }
-        //             }
-        //         }
-        //     }}
-        // />
         <Particles
             params={{
                 particles: {
                     number: {
-                        value: 160,
+                        value: 250,
                         density: {
                             enable: true,
                             value_area: 1500,
@@ -38,8 +18,7 @@ function Particle() {
                         opacity: 0.03,
                     },
                     move: {
-                        direction: "right",
-                        speed: 0.05,
+                        speed: 0.3,
                     },
                     size: {
                         value: 1,
@@ -47,8 +26,8 @@ function Particle() {
                     opacity: {
                         anim: {
                             enable: true,
-                            speed: 1,
-                            opacity_min: 0.05,
+                            speed: 3,
+                            opacity_min: 0.5,
                         },
                     },
                 },

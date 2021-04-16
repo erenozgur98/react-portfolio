@@ -1,8 +1,9 @@
 import React from "react";
+import '../../styles/style.css';
 
 function Footer() {
   return (
-    <footer style={{ color: "#131313" }} className="footer bg-light text-center">
+    <footer className="footer text-center">
         Yigit Eren Ozgur | Portfolio | 2021
     </footer>
   );

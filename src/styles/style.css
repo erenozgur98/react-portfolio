@@ -6,3 +6,38 @@
     /* background-color: #c2c524; */
     font-family: 'Roboto', sans-serif;
 }
+
+.home-section {
+    position: relative;
+    /* z-index: -1; */
+    background-position: top center;
+    padding: 30px 0px;
+}
+
+.home-content {
+    padding: 9rem 0 2rem;
+    color: whitesmoke;
+    text-align: left;
+}
+
+.heading {
+
+}
+
+.navbar {
+    border-bottom: solid whitesmoke 2px;
+    position: fixed;
+    transition: all 0.3 sec ease-out 0s;
+    
+}
+
+.nav-item {
+    border-left: solid whitesmoke 2px;
+    padding: 0px 8px;
+}
+
+.footer {
+    background-color: #131313;
+    bottom: 0;
+    padding: 10px 0px 8px 0px;
+}
