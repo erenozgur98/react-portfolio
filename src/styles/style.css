@@ -18,6 +18,10 @@
     
 }
 
+.fas {
+    padding-right: 8px;
+}
+
 .nav-item {
     border-left: solid whitesmoke 2px;
     padding: 0px 8px;

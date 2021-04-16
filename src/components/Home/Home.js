@@ -9,11 +9,11 @@ const HomePage = () => {
         <section>
             <Container fluid className="home-section" id="home">
                 <Row>
-                    <Col md={7} className="home-header">
+                    <Col className="home-header" style={{ textAlign: 'center' }}>
                         <h2 className="heading-name">
                             Hey there! I'm Yigit Eren Ozgur
                             </h2>
-                        <div className="type">
+                        <div className="type" style={{ textAlign: 'center' }}>
                             <Type />
                         </div>
                     </Col>
