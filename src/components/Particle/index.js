@@ -1,13 +1,15 @@
 import React from 'react'
 import Particles from 'react-particles-js';
+import '../../styles/style.css'
 
 function Particle() {
     return (
         <Particles
+            className="particles"
             params={{
                 particles: {
                     number: {
-                        value: 250,
+                        value: 300,
                         density: {
                             enable: true,
                             value_area: 1500,

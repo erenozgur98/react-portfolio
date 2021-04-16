@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
-import Particle from '../Particles/Particles';
 
 function About() {
     return (
@@ -12,7 +11,6 @@ function About() {
                     </Col>
                 </Row>
             </Container>
-            <Particle />
         </section>
     )
 }

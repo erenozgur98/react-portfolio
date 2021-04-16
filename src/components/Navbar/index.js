@@ -13,7 +13,7 @@ function Navbar() {
                     <li className="nav-item">
                         <Link
                             to="/home"
-                            className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+                            className={window.location.pathname === "/home" ? "nav-link active" : "nav-link"}
                         >
                             <i className="fas fa-home"></i>Home
                 </Link>
