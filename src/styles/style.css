@@ -28,11 +28,15 @@
     z-index: 0;
 }
 
+/* .navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
 .navbar {
-    border-bottom: solid whitesmoke 2px;
-    /* position: fixed; */
-    transition: all 0.3 sec ease-out 0s;
-    
+    border-bottom: solid whitesmoke 1px;
+    transition: all 0.3 sec ease-out 0s;    
 }
 
 .navbar.navbar-dark {

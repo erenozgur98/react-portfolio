@@ -4,11 +4,11 @@ import '../../styles/style.css';
 
 function Navbar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark">
-            <Link className="navbar-brand" to="/">
-                erenozgur
+        <div className="navigation">
+            <nav className="navbar navbar-expand-lg navbar-dark">
+                <Link className="navbar-brand" to="/">
+                    erenozgur
             </Link>
-            <div>
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link
@@ -43,8 +43,8 @@ function Navbar() {
                 </Link>
                     </li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
+        </div>
     );
 }
 
