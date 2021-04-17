@@ -35,7 +35,7 @@
 } */
 
 .navbar {
-    border-bottom: solid whitesmoke 1px;
+    border-bottom: solid #D1920D 1px;
     transition: all 0.3 sec ease-out 0s;    
 }
 
@@ -48,10 +48,10 @@
 }
 
 .nav-item {
-    border-left: solid whitesmoke 2px;
+    border-left: solid #D1920D 2px;
     padding: 0px 8px;
 }
 
 .footer {
-    padding: 10px 0px 8px 0px;
+    padding: 10px;
 }

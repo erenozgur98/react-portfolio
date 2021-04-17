@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../../styles/style.css';
 
-function Navbar() {
+function NavBar() {
     return (
         <div className="navigation">
             <nav className="navbar navbar-expand-lg navbar-dark">
@@ -48,4 +48,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default NavBar;
