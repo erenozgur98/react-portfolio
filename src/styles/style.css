@@ -29,20 +29,9 @@
 }
 
 /* Nav Section */
-.navigation {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
-
 .navbar {
     border-bottom: solid #D1920D 1px;
     transition: all 0.3 sec ease-out 0s;    
-}
-
-.fas {
-    padding-right: 8px;
-    color: #D1920D;
 }
 
 .nav-link {
@@ -50,8 +39,6 @@
     padding: 0px 8px;
 }
 
-
-
-.footer {
-    padding: 10px;
+.footer a {
+    padding-left: 24px;
 }
