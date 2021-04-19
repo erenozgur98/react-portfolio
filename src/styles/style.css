@@ -39,7 +39,7 @@
 }
 .navbar {
     border-bottom: solid #D1920D 1px;
-    transition: all 0.3 sec ease-out 0s;    
+    transition: all 0.3s ease-out 0s;    
 }
 
 .nav-link {
