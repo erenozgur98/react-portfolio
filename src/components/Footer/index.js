@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import '../../styles/style.css';
+
 
 function Footer() {
   return (
     <div className="footer">
-        Yigit Eren Ozgur | 2021
       <a
         href="tel:2019930466"
         style={{ color: "#D1920D" }}

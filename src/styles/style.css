@@ -43,8 +43,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 12px;
 }
 
 .footer a {
     padding-left: 24px;
+    cursor: pointer;
 }
