@@ -17,10 +17,6 @@
     flex: 1;
 }
 
-.home-section {
-   text-align: center;
-}
-
 .particles {
     position: fixed;
     width: 100vw;
