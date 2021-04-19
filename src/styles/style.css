@@ -29,6 +29,10 @@
 }
 
 /* Nav Section */
+.navbar-brand {
+    flex: 1;
+}
+
 .logo {
     max-width: 175px;
     max-height: 175px;
@@ -41,6 +45,13 @@
 .nav-link {
     color: #fff;
     padding: 0px 8px;
+    transition: all 243ms ease-out 0s;
+}
+
+.navLinks:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    border-bottom: 2px #D1920D solid;
 }
 
 .footer {
