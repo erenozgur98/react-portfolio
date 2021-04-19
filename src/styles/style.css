@@ -29,6 +29,10 @@
 }
 
 /* Nav Section */
+.logo {
+    max-width: 175px;
+    max-height: 175px;
+}
 .navbar {
     border-bottom: solid #D1920D 1px;
     transition: all 0.3 sec ease-out 0s;    
