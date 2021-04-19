@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function About() {
     return (
-        <section>
+        <div>
             <Container fluid className="" id="about">
                 <Row>
                     <Col>
@@ -11,7 +11,7 @@ function About() {
                     </Col>
                 </Row>
             </Container>
-        </section>
+        </div>
     )
 }
 

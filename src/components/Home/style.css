@@ -12,6 +12,7 @@ section {
     max-height: 300px;
     border-radius: 48px;
     padding-bottom: 12px;
+    background: transparent;
 }
 
 .name {
