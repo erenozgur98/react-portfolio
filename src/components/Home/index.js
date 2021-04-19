@@ -2,6 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import Type from './Type';
 import './style.css';
+import pic from './pic.jpeg'
 
 const HomePage = () => {
     return (
@@ -15,7 +16,7 @@ const HomePage = () => {
                 </div>
             </Container>
             <Container className="picture">
-                <img src="" alt="profilePicture" />
+                <img src={pic} className="profile-picture"alt="profilePicture" />
             </Container>
         </section>
     )
