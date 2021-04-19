@@ -6,12 +6,12 @@ import '../../styles/style.css';
 function Footer() {
   return (
     <div className="footer">
-      <a
-        href="tel:2019930466"
+      {/* <a
+        href=""
         style={{ color: "#D1920D" }}
       >
         <i class="fas fa-phone"></i>
-      </a>
+      </a> */}
       <a
         href="mailto:yigiterenozgur@outlook.com"
         style={{ color: "#D1920D" }}
