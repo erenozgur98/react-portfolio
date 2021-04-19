@@ -10,6 +10,7 @@ function Type() {
                     "Passionate About Coding",
                     "Fast Learner",
                     "JavaScript, React.js, MongoDB",
+                    "Open to learn new technologies",
                 ],
                 autoStart: true,
                 loop: true,

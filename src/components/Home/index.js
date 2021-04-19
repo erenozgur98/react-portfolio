@@ -9,14 +9,14 @@ const HomePage = () => {
         <section>
             <Container className="home-section">
                 <h2 className="heading-name">
-                    Hey there! I'm Yigit Eren Ozgur
+                    Hey there! I'm <span class="name">Yigit Eren Ozgur</span>
                             </h2>
                 <div className="type">
-                    <Type />
                 </div>
             </Container>
             <Container className="picture">
                 <img src={pic} className="profile-picture"alt="profilePicture" />
+                    <Type />
             </Container>
         </section>
     )

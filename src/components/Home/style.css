@@ -11,4 +11,10 @@ section {
     max-width: 300px;
     max-height: 300px;
     border-radius: 48px;
+    padding-bottom: 12px;
+}
+
+.name {
+    color: #D1920D;
+    border-bottom: 1px solid #D1920D;
 }
