@@ -1,22 +1,21 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Type from './Type';
-import '../../styles/style.css';
+import './style.css';
 
 const HomePage = () => {
     return (
         <section>
-            <Container fluid className="home-section" id="home">
-                    <Row>
-                        <Col className="home-header" style={{ textAlign: 'center' }}>
-                            <h2 className="heading-name">
-                                Hey there! I'm Yigit Eren Ozgur
+            <Container className="home-section">
+                <h2 className="heading-name">
+                    Hey there! I'm Yigit Eren Ozgur
                             </h2>
-                            <div className="type" style={{ textAlign: 'center' }}>
-                                <Type />
-                            </div>
-                        </Col>
-                    </Row>
+                <div className="type">
+                    <Type />
+                </div>
+            </Container>
+            <Container className="picture">
+                <img src="" alt="profilePicture" />
             </Container>
         </section>
     )
