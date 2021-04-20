@@ -55,6 +55,19 @@ function NavBar() {
 
                     </div>
                 </Link>
+                <Link
+                    to="https://docs.google.com/document/d/1Fk0PF1XHbvAywMvCG-2oCISqmK-Ttk3C2h_YBoPzKW8/edit"
+                    target="_blank"
+                    className="nav-link"
+                >
+                    <div className="navLinks">
+                        <i
+                            style={{ paddingRight: "8px", color: "#D1920D" }}
+                            class="far fa-file-alt"></i>
+                            Resume
+
+                    </div>
+                </Link>
             </nav>
         </div>
     );
