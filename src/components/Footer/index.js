@@ -1,5 +1,6 @@
 import React from "react";
 import '../../styles/style.css';
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -11,24 +12,25 @@ function Footer() {
       >
         <i class="fas fa-phone"></i>
       </a> */}
-      <a
+      <Link
+        variant="nav"
         href="mailto:yigiterenozgur@outlook.com"
-        style={{ color: "#D1920D" }}
+        class="footer-link"
       >
         <i class="fas fa-envelope"></i>
-      </a>
-      <a
+      </Link>
+      <Link
         href="https://www.linkedin.com/in/yigit-eren-ozgur/"
-        style={{ color: "#D1920D" }}
+        class="footer-link"
       >
         <i className="fab fa-linkedin-in"></i>
-      </a>
-      <a
+      </Link>
+      <Link
         href="github.com/erenozgur98"
-        style={{ color: "#D1920D" }}
+        class="footer-link"
       >
         <i className="fab fa-github"></i>
-      </a>
+      </Link>
     </div >
   );
 }
