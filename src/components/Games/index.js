@@ -3,10 +3,10 @@ import Snake from 'react-simple-snake';
 
 function Games() {
     return (
-        <div>
+        <section>
             <h2 style={{ textAlign: 'center' }}>Here is a snake game for you!</h2>
             <Snake />
-        </div>
+        </section>
     )
 }
 

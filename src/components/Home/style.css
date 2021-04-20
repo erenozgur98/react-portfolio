@@ -1,10 +1,14 @@
-section {
+.section-header {
     display: grid;
     grid-template-columns: 2fr 2fr;
     text-align: center;
     align-items: center;
     justify-items: center;
     padding-top: 64px;
+}
+
+.small-about-me {
+    font-size: 1.1rem;
 }
 
 .profile-picture {
