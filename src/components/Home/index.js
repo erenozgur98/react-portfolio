@@ -11,6 +11,9 @@ const HomePage = () => {
                 <h2 className="heading-name">
                     Hey there! I'm <span class="name">Yigit Eren Ozgur</span>
                 </h2>
+                <p className="home-about-me">
+                    
+                </p>
             </Container>
             <Container className="picture">
                 <img src={pic} className="profile-picture" alt="profilePicture" />
