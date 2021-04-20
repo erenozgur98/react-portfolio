@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import '../../styles/style.css';
 import { Link } from 'react-router-dom';
 
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       {/* <a
         href=""
         style={{ color: "#D1920D" }}
@@ -31,7 +31,7 @@ function Footer() {
       >
         <i className="fab fa-github"></i>
       </Link>
-    </div >
+    </footer>
   );
 }
 

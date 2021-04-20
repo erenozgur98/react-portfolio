@@ -43,7 +43,6 @@
     padding: 0px 8px;
     transition: all 243ms ease-out 0s;
 }
-
 .navLinks:hover {
     color: #fff;
     transform: translateY(-3px);
@@ -57,7 +56,6 @@
     padding-bottom: 12px;
 }
 
-.footer a {
-    padding-left: 24px;
-    cursor: pointer;
+.footer-link {
+    padding: 12px;
 }

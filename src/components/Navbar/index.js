@@ -12,7 +12,7 @@ function NavBar() {
                 </Link>
                 <Link
                     to="/home"
-                    className={window.location.pathname === "/home" ? "nav-link active" : "nav-link"}
+                    className="nav-link"
                 >
                     <div className="navLinks">
                         <i
@@ -23,7 +23,7 @@ function NavBar() {
                 </Link>
                 <Link
                     to="/about"
-                    className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
+                    className="nav-link"
                 >
                     <div className="navLinks">
                         <i
@@ -34,7 +34,7 @@ function NavBar() {
                 </Link>
                 <Link
                     to="/projects"
-                    className={window.location.pathname === "/projects" ? "nav-link active" : "nav-link"}
+                    className="nav-link"
                 >
                     <div className="navLinks">
                         <i
@@ -45,7 +45,7 @@ function NavBar() {
                 </Link>
                 <Link
                     to="/games"
-                    className={window.location.pathname === "/games" ? "nav-link active" : "nav-link"}
+                    className="nav-link"
                 >
                     <div className="navLinks">
                         <i
@@ -56,7 +56,7 @@ function NavBar() {
                     </div>
                 </Link>
                 <Link
-                    to="https://docs.google.com/document/d/1Fk0PF1XHbvAywMvCG-2oCISqmK-Ttk3C2h_YBoPzKW8/edit"
+                    href="https://docs.google.com/document/d/1Fk0PF1XHbvAywMvCG-2oCISqmK-Ttk3C2h_YBoPzKW8/edit"
                     target="_blank"
                     className="nav-link"
                 >
