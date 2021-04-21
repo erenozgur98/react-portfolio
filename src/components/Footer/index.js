@@ -6,12 +6,6 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer className="footer">
-      {/* <a
-        href=""
-        style={{ color: "#D1920D" }}
-      >
-        <i class="fas fa-phone"></i>
-      </a> */}
       <Link
         variant="nav"
         href="mailto:yigiterenozgur@outlook.com"
