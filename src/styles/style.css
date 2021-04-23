@@ -33,6 +33,7 @@
     max-width: 175px;
     max-height: 175px;
 }
+
 .navbar {
     /* border-bottom: solid #D1920D 1px; */
     transition: all 0.3s ease-out 0s;    
@@ -43,6 +44,7 @@
     padding: 0px 8px;
     transition: all 243ms ease-out 0s;
 }
+
 .navLinks:hover {
     color: #fff;
     transform: translateY(-3px);
