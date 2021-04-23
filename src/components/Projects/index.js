@@ -10,38 +10,54 @@ function Projects() {
         <div>
             <Carousel fade>
                 <Carousel.Item interval={5000} className="carousel">
-                    <img
-                        className="d-block"
-                        src={freshairfinder}
-                        alt="Fresh Air Finder"
-                    />
+                    <a
+                        href="https://dylanjacobb.github.io/fresh-air-finder/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            className="image"
+                            src={freshairfinder}
+                            alt="Fresh Air Finder"
+                        />
+                    </a>
                     <Carousel.Caption>
-                        <h3>First Project</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Fresh Air Finder</h3>
+                        <p>National Park Locator which shows all the parks in the state you choose.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000} className="carousel">
-                    <img
-                        className="d-block"
-                        src={cupets}
-                        alt="Cupets"
-                    />
-
+                    <a
+                        href="https://ancient-dawn-51222.herokuapp.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            className="image"
+                            src={cupets}
+                            alt="Cupets"
+                        />
+                    </a>
                     <Carousel.Caption>
-                        <h3>Second Project</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>cuPets</h3>
+                        <p>An app for you and your pet to make new friends!!</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000} className="carousel">
-                    <img
-                        className=""
-                        src={avengers}
-                        alt="Avengers"
-                    />
-
+                    <a
+                        href="https://erenozgur98.github.io/avengers-quiz/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            className="image"
+                            src={avengers}
+                            alt="Avengers"
+                        />
+                    </a>
                     <Carousel.Caption>
-                        <h3>Third Project</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Avengers Quiz</h3>
+                        <p>Avengers Quiz is to test your knowledge on how much you actually know on Avengers! You can save your score and compete with others as well.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
