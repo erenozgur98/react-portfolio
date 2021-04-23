@@ -24,6 +24,10 @@
     background: transparent;
 }
 
+.home-link {
+    padding: 12px
+}
+
 .name {
     color: #D1920D;
     border-bottom: 1px solid #D1920D;
