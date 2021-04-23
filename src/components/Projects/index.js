@@ -57,8 +57,8 @@ function Projects() {
                         />
                     </a>
                     <Carousel.Caption>
-                        <h3>Employee Directory</h3>
-                        <p>It's an employee directory that helps you keep track of your employees where you can sort them, filter them and see their information.</p>
+                        <h3>Avengers Quiz</h3>
+                        <p>Avengers Quiz is to test your knowledge on how much you actually know on Avengers! You can save your score and compete with others as well.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000} className="carousel">
@@ -74,8 +74,8 @@ function Projects() {
                         />
                     </a>
                     <Carousel.Caption>
-                        <h3>Avengers Quiz</h3>
-                        <p>Avengers Quiz is to test your knowledge on how much you actually know on Avengers! You can save your score and compete with others as well.</p>
+                        <h3>Employee Directory</h3>
+                        <p>It's an employee directory that helps you keep track of your employees where you can sort them, filter them and see their information.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
