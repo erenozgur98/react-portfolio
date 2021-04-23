@@ -1,13 +1,10 @@
-import React from 'react';
-import '../../styles/style.css';
+import React from 'react'
 import { Link } from 'react-router-dom';
-
 
 function Footer() {
   return (
-    <footer className="footer">
+    <div className="footer">
       <Link
-        variant="nav"
         href="mailto:yigiterenozgur@outlook.com"
         class="footer-link"
       >
@@ -25,8 +22,8 @@ function Footer() {
       >
         <i className="fab fa-github"></i>
       </Link>
-    </footer>
-  );
+    </div>
+  )
 }
 
 export default Footer;
