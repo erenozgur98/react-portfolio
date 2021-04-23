@@ -1,0 +1,9 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel > img {
+    min-width: 300px;
+}

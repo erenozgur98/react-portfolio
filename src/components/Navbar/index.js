@@ -55,9 +55,10 @@ function NavBar() {
 
                     </div>
                 </Link>
-                <Link
-                    href="https://docs.google.com/document/d/1Fk0PF1XHbvAywMvCG-2oCISqmK-Ttk3C2h_YBoPzKW8/edit"
+                <a
+                    href={"https://docs.google.com/document/d/1Fk0PF1XHbvAywMvCG-2oCISqmK-Ttk3C2h_YBoPzKW8/edit"}
                     target="_blank"
+                    rel="noreferrer"
                     className="nav-link"
                 >
                     <div className="navLinks">
@@ -67,7 +68,7 @@ function NavBar() {
                             Resume
 
                     </div>
-                </Link>
+                </a>
             </nav>
         </div>
     );
