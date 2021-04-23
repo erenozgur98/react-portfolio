@@ -77,40 +77,6 @@ function Projects() {
                         <p>Avengers Quiz is to test your knowledge on how much you actually know on Avengers! You can save your score and compete with others as well.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000} className="carousel">
-                    <a
-                        href="https://erenozgur98.github.io/avengers-quiz/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            className="image"
-                            src={avengers}
-                            alt="Avengers"
-                        />
-                    </a>
-                    <Carousel.Caption>
-                        <h3>Avengers Quiz</h3>
-                        <p>Avengers Quiz is to test your knowledge on how much you actually know on Avengers! You can save your score and compete with others as well.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={5000} className="carousel">
-                    <a
-                        href="https://erenozgur98.github.io/avengers-quiz/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            className="image"
-                            src={avengers}
-                            alt="Avengers"
-                        />
-                    </a>
-                    <Carousel.Caption>
-                        <h3>Avengers Quiz</h3>
-                        <p>Avengers Quiz is to test your knowledge on how much you actually know on Avengers! You can save your score and compete with others as well.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
             </Carousel>
         </div>
     )
