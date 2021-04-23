@@ -20,7 +20,7 @@ function Footer() {
         <i className="fab fa-linkedin-in"></i>
       </Link>
       <Link
-        href="github.com/erenozgur98"
+        to="github.com/erenozgur98"
         class="footer-link"
       >
         <i className="fab fa-github"></i>
