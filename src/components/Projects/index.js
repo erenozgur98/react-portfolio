@@ -1,9 +1,9 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import { Carousel } from 'react-bootstrap';
 import freshairfinder from '../../img/fresh-air-finder.jpg';
 import cupets from '../../img/cupets.jpg';
 import avengers from '../../img/avengers.jpg';
-import employeedirectory from '../../img/employee-directory.jpg';
+import memento from '../../img/memento.jpg';
 import './style.css';
 
 function Projects() {
@@ -64,19 +64,19 @@ function Projects() {
                 </Carousel.Item>
                 <Carousel.Item interval={5000} className="d-block w-100 d-flex justify-content-center">
                     <a
-                        href="https://erenozgur98.github.io/avengers-quiz/"
+                        href="https://memento-multiverse.herokuapp.com/"
                         target="_blank"
                         rel="noreferrer"
                     >
                         <img
                             className="image"
-                            src={employeedirectory}
-                            alt="Employee Directory"
+                            src={memento}
+                            alt="Memento Multiverse"
                         />
                     </a>
                     <Carousel.Caption>
-                        <h3>Employee Directory</h3>
-                        <p>It's an employee directory that helps you keep track of your employees where you can sort them, filter them and see their information.</p>
+                        <h3>Memento Multiverse</h3>
+                        <p>Do you love collecting TV merch? Then you need a fun and funny web store for merch that appreciates your favorite shows, their inside jokes, and transports you into their worlds. A store where you can view your purchases by TV franchise, see how much you’ve invested into each collection, and have a fun animated time while doing it. Memento Multiverse will be the most fun and funny place to collect memorabilia on the web.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
