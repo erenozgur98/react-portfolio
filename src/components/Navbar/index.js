@@ -43,7 +43,7 @@ function NavBar() {
                         Projects
                     </div>
                 </Link>
-                <Link
+                {/* <Link
                     to="/games"
                     className="nav-link"
                 >
@@ -54,7 +54,7 @@ function NavBar() {
                             Games
 
                     </div>
-                </Link>
+                </Link> */}
                 <a
                     href={"https://docs.google.com/document/d/1Fk0PF1XHbvAywMvCG-2oCISqmK-Ttk3C2h_YBoPzKW8/edit"}
                     target="_blank"

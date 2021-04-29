@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { Carousel } from 'react-bootstrap';
 import freshairfinder from '../../img/fresh-air-finder.jpg';
 import cupets from '../../img/cupets.jpg';
@@ -7,10 +7,11 @@ import employeedirectory from '../../img/employee-directory.jpg';
 import './style.css';
 
 function Projects() {
+
     return (
-        <div>
-            <Carousel fade>
-                <Carousel.Item interval={5000} className="carousel">
+        <div className="main-content">
+            <Carousel className="main-content" fade>
+                <Carousel.Item interval={5000} className="d-block w-100 d-flex justify-content-center">
                     <a
                         href="https://dylanjacobb.github.io/fresh-air-finder/"
                         target="_blank"
@@ -19,7 +20,7 @@ function Projects() {
                         <img
                             className="image"
                             src={freshairfinder}
-                            alt="Fresh Air Finder"
+                            alt="Fresh Air Finder"x
                         />
                     </a>
                     <Carousel.Caption>
@@ -27,7 +28,7 @@ function Projects() {
                         <p>National Park Locator which shows all the parks in the state you choose.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000} className="carousel">
+                <Carousel.Item interval={5000} className="d-block w-100 d-flex justify-content-center">
                     <a
                         href="https://ancient-dawn-51222.herokuapp.com/"
                         target="_blank"
@@ -44,7 +45,7 @@ function Projects() {
                         <p>An app for you and your pet to make new friends!!</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000} className="carousel">
+                <Carousel.Item interval={5000} className="d-block w-100 d-flex justify-content-center">
                     <a
                         href="https://erenozgur98.github.io/avengers-quiz/"
                         target="_blank"
@@ -61,7 +62,7 @@ function Projects() {
                         <p>Avengers Quiz is to test your knowledge on how much you actually know on Avengers! You can save your score and compete with others as well.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000} className="carousel">
+                <Carousel.Item interval={5000} className="d-block w-100 d-flex justify-content-center">
                     <a
                         href="https://erenozgur98.github.io/avengers-quiz/"
                         target="_blank"
@@ -79,7 +80,7 @@ function Projects() {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-        </div>
+            </div>
     )
 }
 

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <div className="footer">
-      {/* Yigit Eren Ozgur | 2021 */}
-      <Link
+      Yigit Eren Ozgur | 2021
+      {/* <Link
         href="mailto:yigiterenozgur@outlook.com"
         class="footer-link"
       >
@@ -22,7 +22,7 @@ function Footer() {
         class="footer-link"
       >
         <i className="fab fa-github"></i>
-      </Link>
+      </Link> */}
     </div>
   )
 }
