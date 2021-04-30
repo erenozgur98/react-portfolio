@@ -26,13 +26,14 @@ h1 {
   margin-top: 20px;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  @media and screen(">=phone", "<lgphone") {
-    grid-template-columns: 1fr;
-  }
-  @media and screen(">=lgphone", "<tablet") {
-    grid-template-columns: 1fr;
-  }
-  @media and screen(">=tablet", "<desktop") {
-    grid-template-columns: 1fr 1fr;
-  }
+}
+
+@media and screen(">=phone", "<lgphone") {
+  grid-template-columns: 1fr;
+}
+@media and screen(">=lgphone", "<tablet") {
+  grid-template-columns: 1fr;
+}
+@media and screen(">=tablet", "<desktop") {
+  grid-template-columns: 1fr 1fr;
 }
