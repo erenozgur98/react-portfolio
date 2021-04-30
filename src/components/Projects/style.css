@@ -7,3 +7,32 @@
 .items {
     font-style: italic;
 }
+
+.work-wrapper {
+  width: 80vw;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 20px;
+}
+
+.grid {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  @media and screen(">=phone", "<lgphone") {
+    grid-template-columns: 1fr;
+  }
+  @media and screen(">=lgphone", "<tablet") {
+    grid-template-columns: 1fr;
+  }
+  @media and screen(">=tablet", "<desktop") {
+    grid-template-columns: 1fr 1fr;
+  }
+}
