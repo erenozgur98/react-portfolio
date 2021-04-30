@@ -28,12 +28,12 @@ h1 {
   grid-gap: 10px;
 }
 
-@media and screen(">=phone", "<lgphone") {
+@media screen (">=phone", "<lgphone") {
   grid-template-columns: 1fr;
 }
-@media and screen(">=lgphone", "<tablet") {
+@media screen (">=lgphone", "<tablet") {
   grid-template-columns: 1fr;
 }
-@media and screen(">=tablet", "<desktop") {
+@media screen (">=tablet", "<desktop") {
   grid-template-columns: 1fr 1fr;
 }
