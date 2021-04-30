@@ -16,9 +16,9 @@ const Projects = () => {
   
             <div className="grid">
               <Fade bottom cascade>
-                {data.projects.map((project, index) => (
+                {data.projects.map((project, i) => (
                   <Card
-                    key={index}
+                    key={i}
                     heading={project.title}
                     paragraph={project.para}
                     imgUrl={project.imageSrc}
