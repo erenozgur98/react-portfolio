@@ -1,4 +1,5 @@
-export default (
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
 projects: [
     {
         title: 'Project One',
@@ -38,4 +39,4 @@ projects: [
     }
 ]
 
-)
+}

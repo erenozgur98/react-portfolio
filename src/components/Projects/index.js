@@ -1,5 +1,6 @@
 import { React } from 'react'
 import { Fade } from 'react-reveal'
+import Card from '../Card';
 // import { Carousel } from 'react-bootstrap';
 // import freshairfinder from '../../img/fresh-air-finder.jpg';
 // import cupets from '../../img/cupets.jpg';
