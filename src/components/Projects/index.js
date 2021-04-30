@@ -1,23 +1,17 @@
 import { React } from 'react'
 import { Fade } from 'react-reveal'
 import Card from '../Card';
-// import { Carousel } from 'react-bootstrap';
-// import freshairfinder from '../../img/fresh-air-finder.jpg';
-// import cupets from '../../img/cupets.jpg';
-// import avengers from '../../img/avengers.jpg';
-// import memento from '../../img/memento.jpg';
 import './style.css';
 
 import data from '../../mydata';
 
-function Projects() {
-
+const Projects = () => {
     return (
         <div className="section" id="work">
         <div className="container">
           <div className="work-wrapper">
             <Fade bottom>
-              <h1>Work</h1>
+              <h1>Projects</h1>
             </Fade>
   
             <div className="grid">
