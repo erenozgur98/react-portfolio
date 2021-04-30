@@ -76,7 +76,7 @@ function Projects() {
                     </a>
                     <Carousel.Caption>
                         <h3>Memento Multiverse</h3>
-                        <p>Do you love collecting TV merch? Then you need a fun and funny web store for merch that appreciates your favorite shows, their inside jokes, and transports you into their worlds. A store where you can view your purchases by TV franchise, see how much you’ve invested into each collection, and have a fun animated time while doing it. Memento Multiverse will be the most fun and funny place to collect memorabilia on the web.</p>
+                        <p>Do you love collecting TV merch? Then you need a fun and funny web store for merch that appreciates your favorite shows, their inside jokes, and transports you into their worlds.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
