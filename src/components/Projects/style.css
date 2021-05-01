@@ -28,7 +28,7 @@ h1 {
   grid-gap: 10px;
 }
 
-@media screen (">=phone", "<lgphone") {
+/* @media screen (">=phone", "<lgphone") {
   grid-template-columns: 1fr;
 }
 @media screen (">=lgphone", "<tablet") {
@@ -36,4 +36,4 @@ h1 {
 }
 @media screen (">=tablet", "<desktop") {
   grid-template-columns: 1fr 1fr;
-}
+} */
