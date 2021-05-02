@@ -27,13 +27,3 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
-
-/* @media screen (">=phone", "<lgphone") {
-  grid-template-columns: 1fr;
-}
-@media screen (">=lgphone", "<tablet") {
-  grid-template-columns: 1fr;
-}
-@media screen (">=tablet", "<desktop") {
-  grid-template-columns: 1fr 1fr;
-} */
