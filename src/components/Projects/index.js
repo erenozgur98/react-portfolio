@@ -7,29 +7,31 @@ import data from '../../mydata';
 
 const Projects = () => {
     return (
-        <div className="section" id="work">
-        <div className="container">
-          <div className="work-wrapper">
-            <Fade bottom>
-              <h1>Projects</h1>
-            </Fade>
+      <>
+      </>
+      //   <div className="section" id="work">
+      //   <div className="container">
+      //     <div className="work-wrapper">
+      //       <Fade bottom>
+      //         <h1>Projects</h1>
+      //       </Fade>
   
-            <div className="grid">
-              <Fade bottom cascade>
-                {data.projects.map((project, i) => (
-                  <Card
-                    key={i}
-                    heading={project.title}
-                    paragraph={project.para}
-                    imgUrl={project.imageSrc}
-                    projectLink={project.url}
-                  ></Card>
-                ))}
-              </Fade>
-            </div>
-          </div>
-        </div>
-      </div>
+      //       <div className="grid">
+      //         <Fade bottom cascade>
+      //           {data.projects.map((project, i) => (
+      //             <Card
+      //               key={i}
+      //               heading={project.title}
+      //               paragraph={project.para}
+      //               imgUrl={project.imageSrc}
+      //               projectLink={project.url}
+      //             ></Card>
+      //           ))}
+      //         </Fade>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
         // <div className="main-content">
         //     <Carousel className="main-content" fade>
         //         <Carousel.Item interval={5000} className="d-block w-100 d-flex justify-content-center">
