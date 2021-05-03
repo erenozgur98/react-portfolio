@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Router>
-        <Particle />
+        {/* <Particle /> */}
         <Navbar />
         <div className="main">
           <Route exact path="/" component={HomePage} />

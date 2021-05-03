@@ -10,11 +10,11 @@ import mysql from '../../img/mysql.png';
 const Skills = [
     {
         img: css,
-        description: 'CSS'
+        description: 'CSS3'
     },
     {
         img: html,
-        description: 'HTML'
+        description: 'HTML5'
     },
     {
         img: react,

@@ -4,7 +4,7 @@ import Type from './Type';
 import pic from './pic.jpeg'
 import { Fade } from 'react-reveal';
 import Skills from '.././Skills';
-import './style.css';
+import './style.scss';
 
 const HomePage = () => {
     return (
@@ -27,17 +27,19 @@ const HomePage = () => {
                     <img src={pic} className="profile-picture" alt="profilePicture" />
                 </Container>
             </section>
-            <Container className="skills">
-                <h2>Skills</h2>
-                <div className="skills-grid">
-                    {Skills.map((skill, index) => (
-                        <div className="skill" key={index}>
-                            <img src={skill.img} alt="css" style={{ height: '3rem', background: 'white' }} />
-                            <p>{skill.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </Container>
+            <Fade bottom cascade>
+                <Container className="skills">
+                    <h2>Skills</h2>
+                    <div className="skills-grid">
+                        {Skills.map((skill, index) => (
+                            <div className="skill" key={index}>
+                                <img src={skill.img} alt="css" style={{ height: '3rem', background: 'white' }} />
+                                <p>{skill.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Container>
+            </Fade>
         </div>
     )
 }
