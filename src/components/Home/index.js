@@ -28,7 +28,7 @@ const HomePage = () => {
                 </Container>
             </section>
             <Container className="skills">
-                <h1>Skills</h1>
+                <h2>Skills</h2>
                 <div className="skills-grid">
                     {Skills.map((skill, index) => (
                         <div className="skill" key={index}>
