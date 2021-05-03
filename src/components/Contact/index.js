@@ -1,7 +1,15 @@
+import github from '../../img/github.svg'
+import linkedin from '../../img/linkedin.png'
+// import mail from '../../img/mail.png'
+
 const Contact = [
     {
-        img: '',
-        url: '',
+        img: linkedin,
+        url: 'https://www.linkedin.com/in/yigit-eren-ozgur/',
+    },
+    {
+        img: github,
+        url: 'github.com/erenozgur98',
     },
 ]
 
