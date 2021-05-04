@@ -1,6 +1,6 @@
 .section-header {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: repeat(2, 2fr);
     text-align: center;
     align-items: center;
     justify-items: center;
