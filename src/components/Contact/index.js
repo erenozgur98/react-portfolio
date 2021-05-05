@@ -1,6 +1,5 @@
 import github from '../../img/github.svg'
 import linkedin from '../../img/linkedin.png'
-// import mail from '../../img/mail.png'
 
 const Contact = [
     {
