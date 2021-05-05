@@ -56,7 +56,7 @@ function NavBar() {
                     </div>
                 </Link> */}
                 <a
-                    href={"https://docs.google.com/document/d/1Fk0PF1XHbvAywMvCG-2oCISqmK-Ttk3C2h_YBoPzKW8/edit"}
+                    href={"https://docs.google.com/document/d/1FFk85d-l13BikC6rqBUw_uN6JEtmDJ17f0Cq9ZhaK7g/edit"}
                     target="_blank"
                     rel="noreferrer"
                     className="nav-link"
