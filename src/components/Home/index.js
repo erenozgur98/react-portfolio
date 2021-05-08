@@ -23,9 +23,9 @@ const HomePage = () => {
                     </p>
                     </Container>
                 </Fade>
-                <Container className="picture">
+                {/* <Container className="picture">
                     <img src={pic} className="profile-picture" alt="profilePicture" />
-                </Container>
+                </Container> */}
             </section>
             <Fade bottom cascade>
                 <Container className="skills">

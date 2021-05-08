@@ -1,6 +1,6 @@
 .section-header {
     display: grid;
-    grid-template-columns: repeat(2, 2fr);
+    grid-template-columns: repeat(1, 2fr);
     text-align: center;
     align-items: center;
     justify-items: center;
@@ -27,12 +27,12 @@
     padding-left: 24px;
 }
 
-.profile-picture {
-    max-width: 350px;
-    max-height: 350px;
-    border-radius: 48px;
-    padding-bottom: 12px;
-}
+// .profile-picture {
+//     max-width: 350px;
+//     max-height: 350px;
+//     border-radius: 48px;
+//     padding-bottom: 12px;
+// }
 
 .skills {
     width: 80vw;

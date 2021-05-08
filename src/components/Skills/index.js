@@ -1,5 +1,4 @@
 import css from '../../img/css.svg';
-import code from '../../img/code.svg';
 import html from '../../img/html.svg';
 import react from '../../img/react.svg';
 import javascript from '../../img/javascript.svg';
