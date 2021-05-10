@@ -1,0 +1,19 @@
+.logo {
+    max-width: 175px;
+    max-height: 175px;
+}
+
+.nav-link {
+    color: #fff;
+    padding: 0px 8px;
+}
+
+.navLinks {
+    transition: all 243ms ease;
+}
+
+.navLinks:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    border-bottom: 3px #D1920D solid;
+}
