@@ -1,0 +1,16 @@
+.about-me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2px #D1920D solid;
+}
+
+p {
+    font-size: 20px;
+}

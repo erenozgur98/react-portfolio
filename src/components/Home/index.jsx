@@ -2,7 +2,7 @@ import React from 'react'
 import { Fade } from 'react-reveal';
 import { Container } from 'react-bootstrap';
 import Type from './Type';
-import './style.css';
+import './style.scss';
 
 function Home() {
     return (
