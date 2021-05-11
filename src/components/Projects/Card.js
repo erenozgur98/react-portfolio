@@ -1,6 +1,6 @@
 import React from "react"
 
-const Card = ({ heading, paragraph, image, url, github }) => {
+const Card = ({ title, description, image, url, github }) => {
   return (
     <div>
       <img
@@ -9,8 +9,8 @@ const Card = ({ heading, paragraph, image, url, github }) => {
         alt='projects'
       />
         <div className="content">
-          <h1 className="header">{heading}</h1>
-          <p className="text">{paragraph}</p>
+          <h1 className="header">{title}</h1>
+          <p className="text">{description}</p>
           <a
             href={url}
             target="_blank"

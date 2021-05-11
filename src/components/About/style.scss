@@ -1,4 +1,4 @@
-.about-me {
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,11 +6,28 @@
     text-align: center;
 }
 
+.about-me {
+    border-bottom: 2px #D1920D solid;
+    margin-bottom: 24px;
+}
+
 h1 {
     text-align: center;
-    border-bottom: 2px #D1920D solid;
 }
 
 p {
     font-size: 20px;
+}
+
+.skills {
+    text-align: center;
+    border-bottom: 2px #D1920D solid;
+    margin-bottom: 24px;
+}
+
+.grid {
+    // display: grid;
+    // margin-top: 20px;
+    // grid-template-columns: repeat(2, 1fr);
+    // grid-gap: 10px;
 }
