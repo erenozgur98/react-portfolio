@@ -1,8 +1,8 @@
 import React from 'react'
 import { Fade } from 'react-reveal';
 import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import Type from './Type';
+import './style.css';
 
 function Home() {
     return (
@@ -10,7 +10,7 @@ function Home() {
             <Container className='home-section'>
                 <Fade bottom cascade>
                     <h2 className="heading-name">
-                        Hey there! I'm Yigit Eren Ozgur
+                        Hey there! I'm <span className='name'>Yigit Eren Ozgur</span>
                     </h2>
                     <div className="type">
                         <Type />
@@ -19,12 +19,12 @@ function Home() {
                         Full-stack web developer leveraging customer service background to build a more intuitive user experience on the web. Recently earned a certificate in full stack development from the University of North Carolina Charlotte, with newly developed skills in JavaScript, CSS, React.js, and responsive web design. Known as an innovative problem solver passionate about developing apps, with a focus on mobile-first design and development. With each project, my aim is to best engage my audience for an impactful user experience.
                     </p>
                     {/* underscore about me here part */}
-                    <a href='/about'>
+                    <a href='/about' className='about-link'>
                         You can read more about me here
                     </a>
                 </Fade>
             </Container>
-            <Container>
+            <Container className='contact-section'>
                 {/* style the links to contact me */}
                 <Fade bottom cascade>
                     <h2 className='contact'>

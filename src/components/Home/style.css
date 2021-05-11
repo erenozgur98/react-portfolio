@@ -1,0 +1,28 @@
+.section-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.heading-name {
+
+}
+
+.name {
+    color: #D1920D;
+    border-bottom: 1px solid #D1920D;
+}
+
+.type {
+
+}
+
+.home-about-me {
+
+}
+
+.about-link {
+
+}

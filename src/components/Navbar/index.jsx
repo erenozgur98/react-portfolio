@@ -16,6 +16,7 @@ function NavBar() {
                 <Nav.Link as={Link} to='/' className='nav-link'>
                     <div className="navLinks">
                         <i
+                            // style is for icons
                             style={{ paddingRight: "8px", color: "#D1920D" }}
                             className="fas fa-home"></i>
                         Home
@@ -24,6 +25,7 @@ function NavBar() {
                 <Nav.Link as={Link} to='/about' className='nav-link'>
                     <div className="navLinks">
                         <i
+                            // style is for icons
                             style={{ paddingRight: "8px", color: "#D1920D" }}
                             className="fas fa-user"></i>
                         About Me
@@ -32,6 +34,7 @@ function NavBar() {
                 <Nav.Link as={Link} to='/projects' className='nav-link'>
                     <div className="navLinks">
                         <i
+                            // style is for icons
                             style={{ paddingRight: "8px", color: "#D1920D" }}
                             className="fas fa-code"></i>
                         Projects
@@ -39,10 +42,13 @@ function NavBar() {
                 </Nav.Link>
                 <Nav.Link
                     href={'https://docs.google.com/document/d/1FFk85d-l13BikC6rqBUw_uN6JEtmDJ17f0Cq9ZhaK7g/edit'}
+                    target='_blank'
+                    rel='noreferrer'
                     className='nav-link'
                 >
                     <div className="navLinks">
                         <i
+                            // style is for icons
                             style={{ paddingRight: "8px", color: "#D1920D" }}
                             className="far fa-file-alt"></i>
                         Resume
