@@ -6,14 +6,14 @@ import './style.css';
 
 function NavBar() {
     return (
-        <Navbar collapseOnSelect expand='lg' bg='transparent' variant='dark' fixed='top'>
+        <Navbar collapseOnSelect expand='lg' bg='transparent' variant='dark' sticky='top'>
             <NavbarBrand as={Link} className='navbar-brand' to='/'>
                 <img src={logo} className='logo' alt='logo' />
             </NavbarBrand>
-            <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-            <Navbar.Collapse id='responsive-navbar-nav' />
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav" />
             <Nav className='ml-auto navbar'>
-                <Nav.Link as={Link} to='/' href='/' className='nav-link'>
+                <Nav.Link as={Link} to='/' className='nav-link'>
                     <div className="navLinks">
                         <i
                             style={{ paddingRight: "8px", color: "#D1920D" }}
@@ -21,15 +21,15 @@ function NavBar() {
                         Home
                         </div>
                 </Nav.Link>
-                <Nav.Link as={Link} to='/about' href='/about' className='nav-link'>
+                <Nav.Link as={Link} to='/about' className='nav-link'>
                     <div className="navLinks">
                         <i
                             style={{ paddingRight: "8px", color: "#D1920D" }}
                             className="fas fa-user"></i>
-                        About
+                        About Me
                         </div>
                 </Nav.Link>
-                <Nav.Link as={Link} to='/projects' href='/projects' className='nav-link'>
+                <Nav.Link as={Link} to='/projects' className='nav-link'>
                     <div className="navLinks">
                         <i
                             style={{ paddingRight: "8px", color: "#D1920D" }}

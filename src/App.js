@@ -9,9 +9,18 @@ import './style.css'
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-    </Router>
+    <div>
+      <Router>
+        <Particle />
+        <Navbar />
+        <div className='main'>
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/home' component={HomePage} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/projects' component={Projects} />
+        </div>
+      </Router>
+    </div>
   );
 }
 

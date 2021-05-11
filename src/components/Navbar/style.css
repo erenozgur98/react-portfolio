@@ -17,3 +17,7 @@
     transform: translateY(-3px);
     border-bottom: 3px #D1920D solid;
 }
+
+.navbar-brand {
+    flex: 1;
+}
