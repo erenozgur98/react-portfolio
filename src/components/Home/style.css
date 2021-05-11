@@ -7,7 +7,7 @@
 }
 
 .heading-name {
-
+    font-size: 42px;
 }
 
 .name {
@@ -16,13 +16,40 @@
 }
 
 .type {
-
+    font-size: 24px;
+    margin-bottom: 48px;
+    border-bottom: 2px #D1920D solid;
 }
 
 .home-about-me {
-
+    font-size: 20px;
 }
 
 .about-link {
+    font-size: 24px;
+}
 
+.about-link:hover {
+    transform: translateY(-3px);
+    border-bottom: 2px #D1920D solid;
+}
+
+.contact-section {
+    margin-top: 32px;
+}
+
+.contact {
+    border-bottom: 2px #D1920D solid;
+}
+
+.footer-link {
+    padding-right: 16px;
+}
+
+.real-link {
+    color: #fff;
+}
+
+.real-link:hover {
+    color: #fff;
 }
