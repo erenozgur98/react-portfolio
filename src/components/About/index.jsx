@@ -2,7 +2,9 @@ import React from 'react'
 import { Fade } from 'react-reveal';
 import { Container } from 'react-bootstrap';
 import './style.scss';
-import Skills from './skills';
+import Applications from './application';
+import Tools from './tools';
+import Language from './language';
 import Card from './Card';
 
 function About() {
@@ -27,13 +29,30 @@ function About() {
             </Container>
             <div className='grid'>
                 <Fade bottom cascade>
-                    {/* {Skills.map((skill, i) => (
+                    {Language.map((language, i) => (
                         <Card
                             key={i}
-                            image={skill.image}
-                            title={skill.title}
+                            image={language.image}
+                            title={language.title}
+                            className='language'
                         />
-                    ))} */}
+                    ))}
+                    {Applications.map((application, i) => (
+                        <Card
+                            key={i}
+                            image={application.image}
+                            title={application.title}
+                            className='application'
+                        />
+                    ))}
+                    {Tools.map((tool, i) => (
+                        <Card
+                            key={i}
+                            image={tool.image}
+                            title={tool.title}
+                            className='Tools'
+                        />
+                    ))}
                 </Fade>
             </div>
         </div>

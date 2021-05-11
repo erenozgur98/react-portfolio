@@ -1,15 +1,23 @@
 import github from '../../img/github.svg';
-import css from '../../img/css.svg'
-import html from '../../img/html.svg'
+import mysql from '../../img/mysql.png';
+import mongodb from '../../img/mongodb.jpg';
 
-const Skills = [
+const Application = [
     {
-        image: {html},
-        title: 'HTML5',
+        title: 'MySQL',
+        image: mysql,
+    },
+    {
+        title: 'MongoDB',
+        image: mongodb,
+    },
+    {
+        title: 'GitHub',
+        image: github,
     },
 ]
 
-export default Skills;
+export default Application;
 
 
 
