@@ -29,7 +29,7 @@ function About() {
             </Container>
             <div className='grid'>
                 <Fade bottom cascade>
-                    {Language.map((language, i) => (
+                    {/* {Language.map((language, i) => (
                         <Card
                             key={i}
                             image={language.image}
@@ -52,7 +52,7 @@ function About() {
                             title={tool.title}
                             className='Tools'
                         />
-                    ))}
+                    ))} */}
                 </Fade>
             </div>
         </div>
