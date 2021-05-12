@@ -27,9 +27,10 @@ function About() {
                     <h2>Technical Skills</h2>
                 </Fade>
             </Container>
-            <div className='grid'>
+            <Container className='languages'>
                 <Fade bottom cascade>
-                    {/* {Language.map((language, i) => (
+                    <h3>Languages:</h3>
+                    {Language.map((language, i) => (
                         <Card
                             key={i}
                             image={language.image}
@@ -37,6 +38,11 @@ function About() {
                             className='language'
                         />
                     ))}
+                </Fade>
+            </Container>
+            <Container className='applications'>
+                <Fade bottom cascade>
+                    <h3>Applications:</h3>
                     {Applications.map((application, i) => (
                         <Card
                             key={i}
@@ -45,18 +51,23 @@ function About() {
                             className='application'
                         />
                     ))}
+                </Fade>
+            </Container>
+            <Container className='tools'>
+                <Fade bottom cascade>
+                    <h3>Tools:</h3>
                     {Tools.map((tool, i) => (
                         <Card
                             key={i}
                             image={tool.image}
                             title={tool.title}
-                            className='Tools'
+                            className='tool'
                         />
-                    ))} */}
+                    ))}
                 </Fade>
-            </div>
+            </Container>
         </div>
     )
 }
 
-export default About
+export default About;

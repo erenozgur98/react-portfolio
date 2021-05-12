@@ -1,15 +1,16 @@
 import React from 'react'
+import './style.scss';
 
 function Card({ image, title }) {
     return (
-        <div>
+        <div className='cards' >
             <img
-                className='img-fluid rounded mx-auto d-block'
+                className='image'
                 src={image}
                 alt='skills'
             />
             <div className='content'>
-                <h2>{title}</h2>
+                <h4>{title}</h4>
             </div>
         </div>
     )

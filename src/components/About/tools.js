@@ -1,10 +1,9 @@
-import react from '../../img/react.svg';
-import node from '../../img/node.png';
-import jquery from '../../img/jquery.jpg';
-// import express from '../../img/';
-// import handlebars from '../../img/';
-// import bootstrap from '../../img/';
-// import bulma from '../../img/';
+import react from '../../img/tools/react.svg';
+import node from '../../img/tools/node.png';
+import jquery from '../../img/tools/jquery1.png';
+// import express from '../../img/tools/';
+import handlebars from '../../img/tools/handlebarss.png';
+import bootstrap from '../../img/tools/bootstrap.png';
 
 const Tools = [
     {
@@ -18,6 +17,14 @@ const Tools = [
     {
         title: 'jQuery',
         image: jquery
+    },
+    {
+        title: 'Handlebars.js',
+        image: handlebars
+    },
+    {
+        title: 'Bootstrap',
+        image: bootstrap
     },
 ]
 

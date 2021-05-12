@@ -1,6 +1,6 @@
-import css from '../../img/css.svg';
-import html from '../../img/html.svg';
-import javascript from '../../img/javascript.svg';
+import css from '../../img/language/css.png';
+import html from '../../img/language/html.png';
+import javascript from '../../img/language/javascript.png';
 
 const Language = [
     {

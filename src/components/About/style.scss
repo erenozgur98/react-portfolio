@@ -21,17 +21,32 @@ p {
     margin-bottom: 24px;
 }
 
-.grid {
-    // display: grid;
-    // margin-top: 20px;
-    // grid-template-columns: repeat(2, 1fr);
-    // grid-gap: 10px;
+
+.cards {
+    // display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.language {
-    max-width: 100px;
+.image {
+
 }
 
-.application {
-    max-width: 100px;
+.content {
+    padding-left: 8px;
+}
+
+.languages {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+}
+
+.applications {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+}
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
 }

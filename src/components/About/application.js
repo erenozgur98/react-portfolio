@@ -1,6 +1,6 @@
-import github from '../../img/github.svg';
-import mysql from '../../img/mysql.png';
-import mongodb from '../../img/mongodb.jpg';
+import github from '../../img/application/github.png';
+import mysql from '../../img/application/mysql.png';
+import mongodb from '../../img/application/mongodb.png';
 
 const Application = [
     {
