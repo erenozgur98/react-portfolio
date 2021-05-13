@@ -8,12 +8,12 @@ import './style.css';
 function Projects() {
     return (
         <div className='projects'>
-            <Container>
+            <Container className='project-h2'>
                 <Fade bottom cascade>
                     <h2>Projects</h2>
                 </Fade>
             </Container>
-            <div className='grid'>
+            <div className='project-card'>
                 {Project.map((project, index) => (
                     <Card
                         key={index}

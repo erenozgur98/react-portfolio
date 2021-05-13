@@ -1,9 +1,16 @@
-import react from '../../img/tools/react.svg';
+import react from '../../img/tools/react.png';
 import node from '../../img/tools/node.png';
 import jquery from '../../img/tools/jquery1.png';
 // import express from '../../img/tools/';
 import handlebars from '../../img/tools/handlebarss.png';
 import bootstrap from '../../img/tools/bootstrap.png';
+import github from '../../img/application/github.png';
+import mysql from '../../img/application/mysql.png';
+import mongodb from '../../img/application/mongodb.png';
+import css from '../../img/language/css.png';
+import html from '../../img/language/html.png';
+import javascript from '../../img/language/javascript.png';
+
 
 const Tools = [
     {
@@ -25,6 +32,30 @@ const Tools = [
     {
         title: 'Bootstrap',
         image: bootstrap
+    },
+    {
+        title: 'HTML5',
+        image: html,
+    },
+    {
+        title: 'CSS3',
+        image: css,
+    },
+    {
+        title: 'JavaScript',
+        image: javascript,
+    },
+    {
+        title: 'MySQL',
+        image: mysql,
+    },
+    {
+        title: 'MongoDB',
+        image: mongodb,
+    },
+    {
+        title: 'GitHub',
+        image: github,
     },
 ]
 

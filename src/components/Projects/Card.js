@@ -21,7 +21,7 @@ const Card = ({ title, description, image, url, github }) => {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn"
+          className="button"
         >
           Deployed
         </a>
@@ -29,7 +29,7 @@ const Card = ({ title, description, image, url, github }) => {
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn"
+          className="button"
         >
           Github
         </a>
