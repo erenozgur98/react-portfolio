@@ -14,22 +14,29 @@ function Home() {
                     </h2>
                 </Fade>
                 <Fade bottom cascade>
-                    <div className="type">
-                        <Type />
-                    </div>
-                    <p className="home-about-me">
-                        Full-stack web developer leveraging customer service background to build a more intuitive user experience on the web. Recently earned a certificate in full stack development from the University of North Carolina Charlotte, with newly developed skills in JavaScript, CSS, React.js, and responsive web design. Known as an innovative problem solver passionate about developing apps, with a focus on mobile-first design and development. With each project, my aim is to best engage my audience for an impactful user experience.
-                    </p>
-                    <a href='/about' className='about-link'>
-                        You can read more about me here
-                    </a>
+                    <Container>
+                        <div className="type">
+                            <Type />
+                        </div>
+                        <p className="home-about-me">
+                            Full-stack web developer leveraging customer service background to build a more intuitive user experience on the web. Recently earned a certificate in full stack development from the University of North Carolina Charlotte, with newly developed skills in JavaScript, CSS, React.js, and responsive web design. Known as an innovative problem solver passionate about developing apps, with a focus on mobile-first design and development. With each project, my aim is to best engage my audience for an impactful user experience.
+                        </p>
+                        <p className='about-link-p'>
+                            Read more about me <span>
+                                <a href='/about' className='about-link'>
+                                    here
+                                </a></span>
+                        </p>
+                    </Container>
                 </Fade>
             </Container>
-            <Container className='contact-section'>
-                <Fade bottom cascade>
+            <Fade bottom cascade>
+                <Container className='contact-section'>
                     <h2><span className='contact'>Contact</span></h2>
-                </Fade>
-                <Fade bottom cascade>
+                </Container>
+            </Fade>
+            <Fade bottom cascade>
+                <Container className='contact-links'>
                     <div>
                         <a
                             href={'mailto:yigiterenozgur@outlook.com'}
@@ -84,8 +91,8 @@ function Home() {
                             github.com/erenozgur98
                         </a>
                     </div>
-                </Fade>
-            </Container>
+                </Container>
+            </Fade>
         </div>
     )
 }
