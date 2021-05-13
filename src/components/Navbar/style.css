@@ -16,3 +16,14 @@
 .navbar-brand {
     flex: 1;
 }
+
+.navColor1 {
+    background-color: black;
+    opacity: 90%;
+    transition: all 243ms ease-in-out;
+}
+
+.navColor2 {
+    background-color: transparent;
+
+}

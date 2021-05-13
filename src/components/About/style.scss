@@ -23,7 +23,7 @@ p {
 
 
 .cards {
-    // display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -39,14 +39,17 @@ p {
 .languages {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
+    padding: 24px;
 }
 
 .applications {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
+    padding: 24px;
 }
 
 .tools {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
+    padding: 24px;
 }

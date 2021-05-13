@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar, Nav, NavbarBrand } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../Navbar/logo.png'
 import './style.css';
 
 function NavBar() {
+    const [navColor, updateColor] = useState(false);
+
+    const scrollHandler = () => {
+        if (window.scrollY >= 20) {
+            updateColor(true);
+        } else {
+            updateColor(false);
+        }
+    }
+
+    window.addEventListener('scroll', scrollHandler);
+
     return (
-        <Navbar collapseOnSelect expand='lg' bg='transparent' variant='dark' sticky='top'>
+        <Navbar
+            collapseOnSelect
+            expand='lg'
+            bg={navColor ? '' : ''}
+            variant='dark'
+            sticky='top'
+            className={navColor ? 'navColor1' : 'navColor2'}
+        >
             <NavbarBrand as={Link} className='navbar-brand' to='/'>
                 <img src={logo} className='logo' alt='logo' />
             </NavbarBrand>
