@@ -1,4 +1,5 @@
 import React from "react"
+import './style.css';
 
 const Card = ({ title, description, image, url, github }) => {
   return (
@@ -14,7 +15,7 @@ const Card = ({ title, description, image, url, github }) => {
           alt='projects'
         />
       </a>
-      <div className="content">
+      <div className="under-content">
         <h1 className="header">{title}</h1>
         <p className="text">{description}</p>
         <a
