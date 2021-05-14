@@ -6,7 +6,7 @@ function Card({ image, title }) {
         <div className='cards' >
             <img
                 className='image'
-                src={image}
+                src={`${process.env.PUBLIC_URL}${image}`}
                 alt='skills'
             />
             <div className='content'>

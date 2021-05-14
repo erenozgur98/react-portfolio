@@ -14,47 +14,47 @@
 const Tools = [
     {
         title: 'React.js',
-        image: '/img/react.png'
+        image: '/images/tools/react.png'
     },
     {
         title: 'Node.js',
-        // image: node
+        image: '/images/tools/node.png'
     },
     {
         title: 'jQuery',
-        // image: jquery
+        image: '/images/tools/jquery1.png'
     },
     {
         title: 'Handlebars.js',
-        // image: handlebars
+        image: '/images/tools/handlebarss.png'
     },
     {
         title: 'Bootstrap',
-        // image: bootstrap
+        image: '/images/tools/bootstrap.png'
     },
     {
         title: 'HTML5',
-        // image: html,
+        image: '/images/tools/html.png'
     },
     {
         title: 'CSS3',
-        // image: css,
+        image: '/images/language/css.png'
     },
     {
         title: 'JavaScript',
-        // image: javascript,
+        image: '/images/language/javascript.png'
     },
     {
         title: 'MySQL',
-        // image: mysql,
+        image: '/images/application/mysql.png'
     },
     {
         title: 'MongoDB',
-        // image: mongodb,
+        image: '/images/application/mongodb.png'
     },
     {
         title: 'GitHub',
-        // image: github,
+        image: '/images/appllication/github.png'
     },
 ]
 
