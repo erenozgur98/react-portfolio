@@ -11,7 +11,7 @@ const Card = ({ title, description, image, url, github }) => {
       >
         <img
           className="img-fluid rounded mx-auto"
-          src='./images/cupets.jpg'
+          src={`${process.env.PUBLIC_URL}${image}`}
           alt='projects'
         />
       </a>

@@ -7,7 +7,7 @@ const Projects = [
     {
         title: 'Fresh Air Finder',
         description: 'National Park Locator which shows all the parks in the state you choose.',
-        image: '../../.././img/fresh-air-finder.jpg',
+        image: '/images/fresh-air-finder.jpg',
         url: 'https://dylanjacobb.github.io/fresh-air-finder.jpg/',
         github: 'https://github.com/erenozgur98/fresh-air-finder',
         
@@ -15,7 +15,7 @@ const Projects = [
     {
         title: 'cuPets',
         description: 'An app foryou and your pet to make new friends!',
-        image: './img/cupets.jpg',
+        image: '/images/cupets.jpg',
         url: 'https://ancient-dawn-51222.herokuapp.com/home',
         github: 'https://github.com/erenozgur98/cuPets',
         
@@ -23,7 +23,7 @@ const Projects = [
     {
         title: 'Memento Multiverse',
         description: 'Do you love collecting TV merch? Memento Multiverse will be the most fun and funny place to collect memorabilia on the web! ',
-        image: './img/memento.jpg',
+        image: '/images/memento.jpg',
         url: 'https://memento-multiverse.herokuapp.com/',
         github: 'https://github.com/erenozgur98/Memento-Multiverse',
         
@@ -31,7 +31,7 @@ const Projects = [
     {
         title: 'Avengers Quiz',
         description: 'This is a challening Avengers Quiz created with HTML, CSS and JavaScript!',
-        image: './img/avengers.jpg',
+        image: '/images/avengers.jpg',
         url: 'https://erenozgur98.github.io/avengers-quiz/',
         github: 'https://github.com/erenozgur98/avengers-quiz',
         
