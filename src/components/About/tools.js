@@ -54,7 +54,7 @@ const Tools = [
     },
     {
         title: 'GitHub',
-        image: '/images/appllication/github.png'
+        image: '/images/application/github.png'
     },
 ]
 
