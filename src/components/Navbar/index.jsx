@@ -25,13 +25,13 @@ function NavBar() {
             sticky='top'
             className={navColor ? 'navColor1' : 'navColor2'}
         >
-            <NavbarBrand as={Link} className='navbar-brand' to='/'>
+            <NavbarBrand as={Link} className='navbar-brand' to='/React-Portfolio'>
                 <img src={logo} className='logo' alt='logo' />
             </NavbarBrand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className='ml-auto navbar'>
-                    <Nav.Link as={Link} to='/' className='nav-link'>
+                    <Nav.Link as={Link} to='/React-Portfolio' className='nav-link'>
                         <div className="navLinks">
                             <i
                                 // style is for icons
