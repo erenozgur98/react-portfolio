@@ -14,8 +14,8 @@ function App() {
         <Navbar />
         <div className='main'>
           <Route exact path='/' component={HomePage} />
-          <Route exact path='/React-Portfolio' component={HomePage} />
-          <Route exact path='/React-Portfolio' component={HomePage} />
+          <Route exact path='/react-portfolio' component={HomePage} />
+          <Route exact path='/react-portfolio' component={HomePage} />
           <Route exact path='/about' component={About} />
           <Route exact path='/projects' component={Projects} />
         </div>
