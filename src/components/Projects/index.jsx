@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import { Fade } from 'react-reveal';
 import Project from './data.js';
-import Card from './Card';
+import Card from '../Card';
 import './style.css';
 
 function Projects() {

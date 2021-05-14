@@ -1,0 +1,60 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-h2 {
+    margin-bottom: 24px;
+    border-bottom: 2px #D1920D solid;
+}
+
+.project-card {
+    display: grid;
+    margin-top: 24px;
+    grid-template-columns: repeat(1);
+    grid-gap: 24px;
+    z-index: 1;
+}
+
+.button {
+    font-size: 19px;
+    padding: 8px;
+    color: #D1920D;
+    font-weight: 600;
+    transition: all 243ms ease-in;
+}
+
+.button:hover {
+    color: #D1920D;
+}
+
+.header {
+    padding-top: 12px;
+}
+
+.under-content {
+    margin-bottom: 24px;
+    border-bottom: 2px #D1920D solid;
+}
+
+@media screen and (max-width: 450px) {
+    .header {
+        font-size: 28px;
+    }
+
+    .text {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .header {
+        font-size: 25px;
+    }
+
+    .text {
+        font-size: 12px;
+    }
+}

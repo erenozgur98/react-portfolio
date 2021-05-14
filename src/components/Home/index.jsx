@@ -42,15 +42,15 @@ function Home() {
                             href={'mailto:yigiterenozgur@outlook.com'}
                             target='_blank'
                             rel='noreferrer'
-                            class='footer-link'
+                            className='footer-link'
                         >
-                            <i class='fas fa-envelope'></i>
+                            <i className='fas fa-envelope'></i>
                         </a>
                         <a
                             href={'mailto:yigiterenozgur@outlook.com'}
                             target='_blank'
                             rel='noreferrer'
-                            class='real-link'
+                            className='real-link'
                         >
                             yigiterenozgur@outlook.com
                         </a>
@@ -60,7 +60,7 @@ function Home() {
                             href={'https://www.linkedin.com/in/yigit-eren-ozgur/'}
                             target='_blank'
                             rel='noreferrer'
-                            class='footer-link'
+                            className='footer-link'
                         >
                             <i className='fab fa-linkedin-in'></i>
                         </a>
@@ -68,7 +68,7 @@ function Home() {
                             href={'https://www.linkedin.com/in/yigit-eren-ozgur/'}
                             target='_blank'
                             rel='noreferrer'
-                            class='real-link'
+                            className='real-link'
                         >
                             linkedin.com/in/yigit-eren-ozgur/
                         </a>
@@ -80,13 +80,13 @@ function Home() {
                             rel='noreferrer'
                             className='footer-link'
                         >
-                            <i class='fab fa-github'></i>
+                            <i className='fab fa-github'></i>
                         </a>
                         <a
                             href={'https://github.com/erenozgur98'}
                             target='_blank'
                             rel='noreferrer'
-                            class='real-link'
+                            className='real-link'
                         >
                             github.com/erenozgur98
                         </a>

@@ -11,7 +11,7 @@ const Card = ({ title, description, image, url, github }) => {
       >
         <img
           className="img-fluid rounded mx-auto"
-          src={image}
+          src='./images/cupets.jpg'
           alt='projects'
         />
       </a>
