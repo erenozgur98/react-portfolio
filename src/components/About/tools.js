@@ -34,7 +34,7 @@ const Tools = [
     },
     {
         title: 'HTML5',
-        image: '/images/tools/html.png'
+        image: '/images/language/html.png'
     },
     {
         title: 'CSS3',
