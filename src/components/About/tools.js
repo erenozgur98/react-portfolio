@@ -1,16 +1,3 @@
-// import react from '/img/react.png';
-// import node from '/img/tools/node.png';
-// import jquery from '/img/tools/jquery1.png';
-// import handlebars from '/img/tools/handlebarss.png';
-// import bootstrap from '/img/tools/bootstrap.png';
-// import github from '/img/application/github.png';
-// import mysql from '/img/application/mysql.png';
-// import mongodb from '/img/application/mongodb.png';
-// import css from '/img/language/css.png';
-// import html from '/img/language/html.png';
-// import javascript from '/img/language/javascript.png';
-
-
 const Tools = [
     {
         title: 'React.js',
