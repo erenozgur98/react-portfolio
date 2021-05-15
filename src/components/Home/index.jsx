@@ -24,6 +24,9 @@ function Home() {
                         <p className='about-link-p'>
                             Read more about me <a href='/about'><span className='about-link'>here</span></a>
                         </p>
+                        <p className='projects-link-p'>
+                            View my work <a href='/projects'><span className='about-link'>here</span></a>
+                        </p>
                     </Container>
                 </Fade>
             </Container>
