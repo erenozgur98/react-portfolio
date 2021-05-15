@@ -1,8 +1,3 @@
-// import avengers from './img/avengers.jpg';
-// import cupets from './img/cupets.jpg';
-// import freshAirFinder from '/img/fresh-air-finder.jpg';
-// import memento from './img/memento.jpg';
-
 const Projects = [
     {
         title: 'Fresh Air Finder',
