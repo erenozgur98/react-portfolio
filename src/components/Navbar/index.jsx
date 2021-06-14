@@ -34,7 +34,6 @@ function NavBar() {
                     <Nav.Link as={Link} to='/home' className='nav-link'>
                         <div className="navLinks">
                             <i
-                                // style is for icons
                                 style={{ paddingRight: "8px", color: "#D1920D" }}
                                 className="fas fa-home"></i>
                         Home
@@ -43,7 +42,6 @@ function NavBar() {
                     <Nav.Link as={Link} to='/about' className='nav-link'>
                         <div className="navLinks">
                             <i
-                                // style is for icons
                                 style={{ paddingRight: "8px", color: "#D1920D" }}
                                 className="fas fa-user"></i>
                         About Me
@@ -52,7 +50,6 @@ function NavBar() {
                     <Nav.Link as={Link} to='/projects' className='nav-link'>
                         <div className="navLinks">
                             <i
-                                // style is for icons
                                 style={{ paddingRight: "8px", color: "#D1920D" }}
                                 className="fas fa-code"></i>
                         Projects
@@ -66,7 +63,6 @@ function NavBar() {
                     >
                         <div className="navLinks">
                             <i
-                                // style is for icons
                                 style={{ paddingRight: "8px", color: "#D1920D" }}
                                 className="far fa-file-alt"></i>
                         Resume
