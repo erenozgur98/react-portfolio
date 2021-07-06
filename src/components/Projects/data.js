@@ -24,6 +24,14 @@ const Projects = [
         
     },
     {
+        title: 'Memorabilia Multiverse',
+        description: 'Re-make of Memento Multiverse, with bootstrap and simpler.',
+        image: '/images/memorabilia.jpg',
+        url: 'https://memorabilia-multiverse.herokuapp.com/',
+        github: 'https://github.com/erenozgur98/Memorabilia-Multiverse',
+        
+    },
+    {
         title: 'Avengers Quiz',
         description: 'This is a challening Avengers Quiz created with HTML, CSS and JavaScript!',
         image: '/images/avengers.jpg',
