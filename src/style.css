@@ -5,6 +5,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    overflow: hidden;
+}
+
 #root {
     background-color: #131313;
     min-width: 100vw;
