@@ -20,7 +20,6 @@
 .navColor1 {
     background-color: black;
     opacity: 90%;
-    /* transition: all 243ms ease-in-out; */
     transition: transform 450ms ease-in-out;
 }
 
