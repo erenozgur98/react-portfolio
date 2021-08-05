@@ -5,15 +5,15 @@ import logo from '../Navbar/logo.png'
 import './style.css';
 
 function NavBar() {
-    const [navColor, updateColor] = useState(false);
+    const [navColor, setNavColor] = useState('navColor2');
 
     const scrollHandler = () => {
         if (window.scrollY >= 20) {
-            updateColor(true);
+            setNavColor('navColor1');
         } else {
-            updateColor(false);
+            setNavColor('navColor2');
         }
-    }
+    };
 
     window.addEventListener('scroll', scrollHandler);
 
@@ -23,7 +23,7 @@ function NavBar() {
             expand='lg'
             variant='dark'
             sticky='top'
-            className={navColor ? 'navColor1' : 'navColor2'}
+            className={navColor}
         >
             <NavbarBrand as={Link} className='navbar-brand' to='/'>
                 <img src={logo} className='logo' alt='logo' />
