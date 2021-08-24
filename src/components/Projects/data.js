@@ -3,7 +3,7 @@ const Projects = [
         title: 'Fresh Air Finder',
         description: 'National Park Locator which shows all the parks in the state you choose.',
         image: '/images/fresh-air-finder.jpg',
-        url: 'https://dylanjacobb.github.io/fresh-air-finder.jpg/',
+        url: 'https://dylanjacobb.github.io/fresh-air-finder/',
         github: 'https://github.com/erenozgur98/fresh-air-finder',
         
     },
