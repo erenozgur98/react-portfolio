@@ -6,18 +6,12 @@ function Type() {
         <Typewritter 
             options={{
                 strings: [
-                    "Web Developer",
-                    "Passionate About Coding",
-                    "Fast Learner",
-                    "JavaScript",
-                    "React.js",
-                    "MySQL",
-                    "MongoDB",
-                    "Open to learn new technologies",
+                    "Software Engineer at Newfold Digital"
                 ],
                 autoStart: true,
-                loop: true,
-                deleteSpeed: 50,
+                pauseFor: 99999,
+                // loop: true,
+                // deleteSpeed: 50,
             }}
         />
     );
