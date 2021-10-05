@@ -69,6 +69,18 @@
     align-items: flex-start;
 }
 
+@media screen and (max-width: 462px) {
+    .heading-name {
+        display: flex;
+        flex-direction: column;
+        font-size: 32px;
+    }
+
+    .name {
+        border-bottom: none;
+    }
+}
+
 @media screen and (max-width: 350px) {
     .real-link {
         display: none;
