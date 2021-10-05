@@ -9,7 +9,7 @@ function Type() {
                     "Software Engineer"
                 ],
                 autoStart: true,
-                pauseFor: 9999999,
+                pauseFor: 999999999,
                 // loop: true,
                 // deleteSpeed: 50,
             }}
