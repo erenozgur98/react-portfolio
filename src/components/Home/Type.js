@@ -6,10 +6,10 @@ function Type() {
         <Typewritter 
             options={{
                 strings: [
-                    "Software Engineer at Newfold Digital"
+                    "Software Engineer"
                 ],
                 autoStart: true,
-                pauseFor: 99999,
+                pauseFor: 9999999,
                 // loop: true,
                 // deleteSpeed: 50,
             }}
