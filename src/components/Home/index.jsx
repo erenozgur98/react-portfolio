@@ -24,7 +24,7 @@ function Home() {
                         </p>
                         <br />
                         <p className='home-about-me'>
-                            Found a job as a Software Engineer at Newfold Digital in September, 2021.
+                            Starting a new role as a Software Engineer at Newfold Digital in September, 2021.
                         </p>
                     </Container>
                 </Fade>
