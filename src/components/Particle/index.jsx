@@ -1,54 +1,52 @@
-import React from 'react'
-import Particles from 'react-particles-js';
+import React, { useCallback } from "react";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 
-function Particle() {
-    return (
-        <Particles
-            className="particles"
-            params={{
-                particles: {
-                    number: {
-                        value: 300,
-                        density: {
-                            enable: true,
-                            value_area: 1500,
-                        },
-                    },
-                    line_linked: {
-                        enable: false,
-                        opacity: 0.03,
-                    },
-                    move: {
-                        speed: 0.3,
-                    },
-                    size: {
-                        value: 1,
-                    },
-                    opacity: {
-                        anim: {
-                            enable: true,
-                            speed: 3,
-                            opacity_min: 0.5,
-                        },
-                    },
-                },
-                interactivity: {
-                    events: {
-                        onclick: {
-                            enable: true,
-                            mode: "push",
-                        },
-                    },
-                    modes: {
-                        push: {
-                            particles_nb: 1,
-                        },
-                    },
-                },
-                retina_detect: true,
-            }}
-        />
-    )
-}
+const Particle = () => {
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
+  return (
+    <Particles
+      init={particlesInit}
+      options={{
+        particles: {
+          number: {
+            value: 350,
+            density: {
+              enable: true,
+              value_area: 2500,
+            },
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            speed: 0.5,
+          },
+          size: {
+            value: 1,
+          },
+          opacity: {
+            value: 0.5,
+          },
+        },
+        interactivity: {
+          events: {
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+          },
+          modes: {
+            push: {
+              particles_nb: 1,
+            },
+          },
+        },
+        detectRetina: true,
+      }}
+    />
+  );
+};
 
-export default Particle
+export default Particle;

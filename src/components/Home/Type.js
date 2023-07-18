@@ -1,9 +1,8 @@
-import React from 'react'
 import Typewritter from 'typewriter-effect';
 
 function Type() {
     return (
-        <Typewritter 
+        <Typewritter
             options={{
                 strings: [
                     "Software Engineer"

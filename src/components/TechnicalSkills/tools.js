@@ -12,8 +12,8 @@ const Tools = [
         image: '/images/tools/jquery1.png'
     },
     {
-        title: 'Handlebars.js',
-        image: '/images/tools/handlebarss.png'
+        title: 'Material UI',
+        image: '/images/mui.svg'
     },
     {
         title: 'Bootstrap',
