@@ -32,7 +32,25 @@ body {
 }
 
 .main {
-    flex: 1;
     height: 100%;
     z-index: 0 !important;
+}
+
+.logo {
+    max-width: 175px;
+    max-height: 175px;
+}
+
+.navLinks {
+    transition: all 243ms ease;
+}
+
+.navLinks:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    border-bottom: 3px #D1920D solid;
+}
+
+.navbar-brand {
+    flex: 1;
 }

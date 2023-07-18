@@ -1,24 +1,30 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import logo from "./components/logo.png";
 import HomePage from './components/Home';
-import About from './components/About';
 import Projects from './components/Projects';
-import Navbar from './components/Navbar';
 import Particle from './components/Particle';
+import { Navbar, NavbarBrand } from "react-bootstrap";
+import TechnicalSkills from './components/TechnicalSkills';
 import './style.css'
 
 function App() {
   return (
     <div>
-      <Router>
-        <Particle />
-        <Navbar />
-        <div className='main'>
-          <Route exact path='/' component={HomePage} />
-          <Route exact path='/home' component={HomePage} />
-          <Route exact path='/about' component={About} />
-          <Route exact path='/projects' component={Projects} />
-        </div>
-      </Router>
+      <Particle />
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        variant="dark"
+        sticky="top"
+      >
+        <NavbarBrand className="navbar-brand">
+          <img src={logo} className="logo" alt="logo" />
+        </NavbarBrand>
+      </Navbar>
+      <div className='main'>
+        <HomePage />
+        <TechnicalSkills />
+        <Projects />
+      </div>
     </div>
   )
 }
