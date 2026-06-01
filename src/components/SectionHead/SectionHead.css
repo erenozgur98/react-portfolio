@@ -1,0 +1,16 @@
+.section-head {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  padding-bottom: 24px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+@media (max-width: 768px) {
+  .section-head {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+}

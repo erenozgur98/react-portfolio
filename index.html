@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daniel Reyes — Senior Frontend Engineer specializing in React and TypeScript, based in Charlotte, NC.">
+  <title>Daniel Reyes — Frontend Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    /* ========================================
+       CSS Custom Properties / Design Tokens
+       ======================================== */
+    :root {
+      /* Neutrals (oklch, hue 80 for warm-gray cast) - Light mode */
+      --bg: oklch(0.985 0.003 80);
+      --bg-2: oklch(0.94 0.004 80);
+      --surface: oklch(0.98 0.003 80);
+      --surface-2: oklch(0.94 0.004 80);
+      --line: oklch(0.80 0.006 80);
+      --line-soft: oklch(0.88 0.004 80);
+      --fg: oklch(0.15 0.006 80);
+      --fg-2: oklch(0.35 0.006 80);
+      --fg-3: oklch(0.50 0.006 80);
+
+      /* Accent colors */
+      --primary: #685A48;
+      --primary-hover: #57493A;
+      --secondary: #6FA48E;
+      --secondary-dark: #5A8F79;
+
+      /* Utility */
+      --header-bg: oklch(0.985 0.003 80 / 0.85);
+      --selection-bg: #685A48;
+      --selection-fg: #fff;
+    }
+
+    /* ========================================
+       Base / Reset
+       ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background: var(--selection-bg);
+      color: var(--selection-fg);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--fg);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ========================================
+       Typography
+       ======================================== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--fg);
+    }
+
+    h2 {
+      font-size: clamp(1.875rem, 4vw, 2.75rem);
+      letter-spacing: -0.035em;
+    }
+
+    h2 em, h3 em {
+      font-style: italic;
+      color: var(--secondary);
+    }
+
+    h3 {
+      font-size: 1.375rem;
+      letter-spacing: -0.02em;
+    }
+
+    h4 {
+      font-size: 1.125rem;
+      letter-spacing: -0.015em;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--secondary);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .lead {
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: var(--fg);
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-3);
+    }
+
+    /* ========================================
+       Layout
+       ======================================== */
+    .container {
+      width: min(1180px, 100% - 40px);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(1180px, 100% - 32px);
+      }
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 64px 0;
+      }
+    }
+
+    /* Section Header */
+    .section-head {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px;
+      padding-bottom: 24px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    @media (max-width: 768px) {
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+    }
+
+    /* ========================================
+       Header / Navigation
+       ======================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 24px;
+    }
+
+    .wordmark {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--fg);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .wordmark:hover {
+      color: var(--primary);
+    }
+
+    .nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    @media (max-width: 820px) {
+      .nav {
+        display: none;
+      }
+    }
+
+    .nav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--fg-2);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--fg);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .email-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--fg-2);
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .email-pill:hover {
+      color: var(--fg);
+      border-color: var(--line);
+      background: var(--surface-2);
+    }
+
+    @media (max-width: 640px) {
+      .email-pill span {
+        display: none;
+      }
+      .email-pill {
+        padding: 8px 12px;
+      }
+    }
+
+    /* ========================================
+       About Section
+       ======================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .headshot-placeholder {
+      aspect-ratio: 4 / 5;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--surface),
+        var(--surface) 8px,
+        var(--surface-2) 8px,
+        var(--surface-2) 16px
+      );
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .headshot-placeholder span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--fg-3);
+      background: var(--bg);
+      padding: 12px 16px;
+      border-radius: 4px;
+      line-height: 1.5;
+    }
+
+    .about-content .lead {
+      margin-bottom: 24px;
+    }
+
+    .about-content p {
+      color: var(--fg-2);
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--fg-2);
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .social-pill:hover {
+      color: var(--fg);
+      border-color: var(--primary);
+      background: var(--surface-2);
+    }
+
+    /* ========================================
+       Work Section
+       ======================================== */
+    .featured-card {
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+
+    .featured-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    @media (max-width: 900px) {
+      .featured-top {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .featured-copy {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .featured-copy h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .case-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .case-row .eyebrow {
+      margin-bottom: 4px;
+    }
+
+    .case-row p {
+      color: var(--fg-2);
+      margin: 0;
+    }
+
+    .case-row strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    .featured-mockup {
+      background: linear-gradient(135deg, var(--surface-2) 0%, oklch(0.25 0.02 160 / 0.3) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      min-height: 320px;
+    }
+
+    .browser-window {
+      width: 100%;
+      max-width: 400px;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--line);
+    }
+
+    .browser-dot:first-child {
+      background: #ff5f57;
+    }
+
+    .browser-dot:nth-child(2) {
+      background: #febc2e;
+    }
+
+    .browser-dot:nth-child(3) {
+      background: #28c840;
+    }
+
+    .browser-content {
+      padding: 24px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .browser-line {
+      height: 12px;
+      background: var(--surface);
+      border-radius: 4px;
+    }
+
+    .browser-line:nth-child(1) { width: 60%; }
+    .browser-line:nth-child(2) { width: 90%; }
+    .browser-line:nth-child(3) { width: 75%; }
+    .browser-line:nth-child(4) { width: 45%; }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line-soft);
+    }
+
+    @media (max-width: 640px) {
+      .stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat {
+      padding: 24px;
+      text-align: center;
+      border-right: 1px solid var(--line-soft);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: 640px) {
+      .stat:nth-child(2) {
+        border-right: none;
+      }
+      .stat:nth-child(1), .stat:nth-child(2) {
+        border-bottom: 1px solid var(--line-soft);
+      }
+    }
+
+    .stat-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--secondary);
+      font-style: italic;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--fg-3);
+      margin-top: 4px;
+    }
+
+    .featured-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 24px 40px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .featured-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .featured-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .featured-link:hover {
+      color: var(--secondary);
+    }
+
+    .featured-stack {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--fg-3);
+    }
+
+    /* Project & Testimonial Grid */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .project-art {
+      aspect-ratio: 16 / 9;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--surface),
+        var(--surface) 6px,
+        var(--surface-2) 6px,
+        var(--surface-2) 12px
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-art span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--fg-3);
+      background: var(--bg);
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .project-body h4 {
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      color: var(--fg-2);
+      font-size: 0.9375rem;
+      margin-bottom: 16px;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tech-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      padding: 4px 10px;
+      background: var(--bg);
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      color: var(--fg-3);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .project-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-link:hover {
+      color: var(--secondary);
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quote-mark {
+      font-family: 'Lora', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--secondary);
+      margin-bottom: -16px;
+    }
+
+    .testimonial-card blockquote {
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--fg);
+      flex-grow: 1;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line-soft);
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--fg-3);
+    }
+
+    .testimonial-meta strong {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--fg);
+    }
+
+    .testimonial-meta span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--fg-3);
+    }
+
+    /* ========================================
+       Skills Section
+       ======================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+
+    @media (max-width: 900px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .skill-group h3 {
+      margin-bottom: 4px;
+    }
+
+    .skill-group .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .skill-list {
+      list-style: none;
+    }
+
+    .skill-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--line-soft);
+      font-size: 0.9375rem;
+      color: var(--fg-2);
+    }
+
+    .skill-list li:last-child {
+      border-bottom: none;
+    }
+
+    .skill-level {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--fg-3);
+      text-transform: uppercase;
+    }
+
+    /* ========================================
+       Services Section
+       ======================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      padding: 32px;
+      border-right: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      background: var(--surface);
+    }
+
+    .service-card:nth-child(3n) {
+      border-right: none;
+    }
+
+    .service-card:nth-last-child(-n+3) {
+      border-bottom: none;
+    }
+
+    @media (max-width: 900px) {
+      .service-card:nth-child(3n) {
+        border-right: 1px solid var(--line-soft);
+      }
+      .service-card:nth-child(2n) {
+        border-right: none;
+      }
+      .service-card:nth-last-child(-n+3) {
+        border-bottom: 1px solid var(--line-soft);
+      }
+      .service-card:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-card {
+        border-right: none !important;
+      }
+      .service-card:last-child {
+        border-bottom: none;
+      }
+      .service-card:not(:last-child) {
+        border-bottom: 1px solid var(--line-soft);
+      }
+    }
+
+    .service-index {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--fg-3);
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.9375rem;
+      color: var(--fg-2);
+      margin: 0;
+    }
+
+    /* ========================================
+       Contact Section
+       ======================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .contact-intro p {
+      color: var(--fg-2);
+      margin-bottom: 32px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line-soft);
+      text-decoration: none;
+      color: var(--fg-2);
+      transition: all 0.2s ease;
+    }
+
+    .contact-link:last-child {
+      border-bottom: none;
+    }
+
+    .contact-link:hover {
+      color: var(--fg);
+    }
+
+    .contact-link:hover .contact-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      color: var(--fg-3);
+      flex-shrink: 0;
+    }
+
+    .contact-link-text {
+      flex-grow: 1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+    }
+
+    .contact-arrow {
+      font-size: 0.875rem;
+      color: var(--primary);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.2s ease;
+    }
+
+    .contact-form-card {
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--fg-3);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: var(--fg);
+      background: var(--bg);
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(125, 110, 91, 0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--fg-3);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #fff;
+      background: var(--primary);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .submit-btn:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .form-status {
+      margin-top: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--secondary);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .form-status.visible {
+      opacity: 1;
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line-soft);
+      padding: 32px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--fg-3);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--fg-3);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--fg);
+    }
+
+    /* ========================================
+       Utilities
+       ======================================== */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="wordmark">Daniel Reyes</a>
+
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="mailto:hello@danreyes.dev" class="email-pill">
+          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+          <span>hello@danreyes.dev</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <!-- About Section -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">About</span>
+          <h2 id="about-heading">A quick <em>introduction</em></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="headshot-placeholder">
+            <span>headshot.jpg<br>4:5 portrait</span>
+          </div>
+
+          <div class="about-content">
+            <p class="lead">Hey, I'm Daniel. I build websites and apps that people actually enjoy using.</p>
+
+            <p>By day, I'm a senior frontend engineer on a design systems team at a fintech company here in Charlotte. I spend my time crafting reusable components, obsessing over accessibility, and trying to make interfaces feel just right.</p>
+
+            <p>When I'm not at work, you'll find me tinkering on side projects, contributing to open source, or exploring whatever new web platform feature just landed. I genuinely love this stuff — building for the web still feels like magic to me.</p>
+
+            <div class="social-links">
+              <a href="https://github.com/danreyes" class="social-pill" aria-label="GitHub profile">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                GitHub
+              </a>
+              <a href="https://linkedin.com/in/danreyes" class="social-pill" aria-label="LinkedIn profile">
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                LinkedIn
+              </a>
+              <a href="https://read.cv/danreyes" class="social-pill" aria-label="read.cv profile">
+                <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+                read.cv
+              </a>
+              <a href="mailto:hello@danreyes.dev" class="social-pill" aria-label="Send email">
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Work</span>
+          <h2 id="work-heading">A few things <em>I've built</em></h2>
+        </div>
+
+        <!-- Featured Case Study -->
+        <article class="featured-card">
+          <div class="featured-top">
+            <div class="featured-copy">
+              <div>
+                <h3>Meridian Banking Dashboard</h3>
+                <p style="color: var(--fg-3); font-size: 0.9375rem; margin: 0;">A complete redesign of the customer banking experience</p>
+              </div>
+
+              <div class="case-row">
+                <span class="eyebrow">Problem</span>
+                <p>The legacy dashboard had a <strong>68% task abandonment rate</strong> on mobile, with users struggling to complete basic banking tasks.</p>
+              </div>
+
+              <div class="case-row">
+                <span class="eyebrow">Solution</span>
+                <p>Led frontend development of a responsive React app with a new component library, focusing on <strong>progressive disclosure</strong> and touch-first interactions.</p>
+              </div>
+
+              <div class="case-row">
+                <span class="eyebrow">Result</span>
+                <p>Shipped in 14 weeks. Mobile task completion jumped to <strong>94%</strong>, and the component library now powers 12 internal products.</p>
+              </div>
+            </div>
+
+            <div class="featured-mockup">
+              <div class="browser-window">
+                <div class="browser-bar">
+                  <div class="browser-dot"></div>
+                  <div class="browser-dot"></div>
+                  <div class="browser-dot"></div>
+                </div>
+                <div class="browser-content">
+                  <div class="browser-line"></div>
+                  <div class="browser-line"></div>
+                  <div class="browser-line"></div>
+                  <div class="browser-line"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-strip">
+            <div class="stat">
+              <div class="stat-number">+38%</div>
+              <div class="stat-label">Task completion</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">0.9s</div>
+              <div class="stat-label">Avg. load time</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">99</div>
+              <div class="stat-label">Lighthouse score</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">14d</div>
+              <div class="stat-label">Ahead of schedule</div>
+            </div>
+          </div>
+
+          <div class="featured-footer">
+            <div class="featured-links">
+              <a href="#" class="featured-link">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                Live site
+              </a>
+              <a href="#" class="featured-link">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                GitHub
+              </a>
+              <a href="#" class="featured-link">
+                <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+                Full case study
+              </a>
+            </div>
+            <span class="featured-stack">React · TypeScript · Radix UI · Tailwind</span>
+          </div>
+        </article>
+
+        <!-- Project & Testimonial Grid -->
+        <div class="work-grid">
+          <!-- Project 1: Lattice -->
+          <article class="project-card">
+            <div class="project-art">
+              <span>lattice-preview.png</span>
+            </div>
+            <div class="project-body">
+              <h4>Lattice</h4>
+              <p>A therapy scheduling platform that makes booking sessions as simple as picking a time. Built for a local mental health practice.</p>
+              <div class="project-stack">
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">Prisma</span>
+                <span class="tech-badge">Stripe</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  Live
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 1 -->
+          <article class="testimonial-card">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <blockquote>
+              Daniel brought clarity to a messy codebase and shipped features faster than we thought possible. His component work cut our dev time in half.
+            </blockquote>
+            <footer class="testimonial-footer">
+              <div class="testimonial-avatar">SK</div>
+              <div class="testimonial-meta">
+                <strong>Sarah Kim</strong>
+                <span>Engineering Lead, Meridian</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Project 2: Plotpoint -->
+          <article class="project-card">
+            <div class="project-art">
+              <span>plotpoint-preview.png</span>
+            </div>
+            <div class="project-body">
+              <h4>Plotpoint</h4>
+              <p>A newsroom CMS built for speed. Editors can publish breaking stories in under 30 seconds with the real-time collaboration features.</p>
+              <div class="project-stack">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">tRPC</span>
+                <span class="tech-badge">Postgres</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  Live
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Ridgeway -->
+          <article class="project-card">
+            <div class="project-art">
+              <span>ridgeway-preview.png</span>
+            </div>
+            <div class="project-body">
+              <h4>Ridgeway HVAC</h4>
+              <p>Marketing site for a family-owned HVAC company. Clean design, fast performance, and a quote request form that actually converts.</p>
+              <div class="project-stack">
+                <span class="tech-badge">Astro</span>
+                <span class="tech-badge">Tailwind</span>
+                <span class="tech-badge">Netlify</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  Live
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 2 -->
+          <article class="testimonial-card">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <blockquote>
+              Working with Daniel felt like having a co-founder who actually cared. He pushed back when needed and delivered something better than what I asked for.
+            </blockquote>
+            <footer class="testimonial-footer">
+              <div class="testimonial-avatar">MR</div>
+              <div class="testimonial-meta">
+                <strong>Marcus Rivera</strong>
+                <span>Founder, Plotpoint</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Project 4: tinyform -->
+          <article class="project-card">
+            <div class="project-art">
+              <span>tinyform-preview.png</span>
+            </div>
+            <div class="project-body">
+              <h4>tinyform</h4>
+              <p>An open-source form validation library that's actually tiny. Zero dependencies, tree-shakeable, and TypeScript-first.</p>
+              <div class="project-stack">
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Vitest</span>
+                <span class="tech-badge">npm</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  GitHub
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fa-brands fa-npm" aria-hidden="true"></i>
+                  npm
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 3 -->
+          <article class="testimonial-card">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <blockquote>
+              tinyform replaced three different libraries in our stack. It's the validation API I wish existed five years ago. Huge props to Daniel.
+            </blockquote>
+            <footer class="testimonial-footer">
+              <div class="testimonial-avatar">JL</div>
+              <div class="testimonial-meta">
+                <strong>Jamie Lin</strong>
+                <span>Staff Engineer, Vercel</span>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Skills</span>
+          <h2 id="skills-heading">What's in <em>the toolbox</em></h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Frontend</h3>
+            <span class="eyebrow">Core expertise</span>
+            <ul class="skill-list">
+              <li>React / Next.js <span class="skill-level">Expert</span></li>
+              <li>TypeScript <span class="skill-level">Expert</span></li>
+              <li>CSS / Tailwind <span class="skill-level">Expert</span></li>
+              <li>Design Systems <span class="skill-level">Advanced</span></li>
+              <li>Testing (Vitest, Playwright) <span class="skill-level">Advanced</span></li>
+              <li>Animation (Framer Motion) <span class="skill-level">Proficient</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Backend & Data</h3>
+            <span class="eyebrow">Supporting skills</span>
+            <ul class="skill-list">
+              <li>Node.js <span class="skill-level">Advanced</span></li>
+              <li>PostgreSQL <span class="skill-level">Proficient</span></li>
+              <li>Prisma / Drizzle <span class="skill-level">Advanced</span></li>
+              <li>REST / GraphQL / tRPC <span class="skill-level">Advanced</span></li>
+              <li>Redis <span class="skill-level">Familiar</span></li>
+              <li>Python <span class="skill-level">Familiar</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Tools & DevOps</h3>
+            <span class="eyebrow">Workflow & infra</span>
+            <ul class="skill-list">
+              <li>Git / GitHub <span class="skill-level">Expert</span></li>
+              <li>Vercel / Netlify <span class="skill-level">Advanced</span></li>
+              <li>Docker <span class="skill-level">Proficient</span></li>
+              <li>CI/CD (GitHub Actions) <span class="skill-level">Advanced</span></li>
+              <li>Figma <span class="skill-level">Proficient</span></li>
+              <li>AWS (S3, Lambda) <span class="skill-level">Familiar</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Services</span>
+          <h2 id="services-heading">Stuff I love <em>working on</em></h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-index">S/01</span>
+            <h3>Marketing & brand sites</h3>
+            <p>Fast, beautiful websites that tell your story and actually show up in search results.</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-index">S/02</span>
+            <h3>Custom web applications</h3>
+            <p>Interactive tools and dashboards built to solve real problems for your team or customers.</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-index">S/03</span>
+            <h3>Design systems</h3>
+            <p>Component libraries that scale with your product and keep your UI consistent across teams.</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-index">S/04</span>
+            <h3>Performance & accessibility</h3>
+            <p>Audits and fixes that make your site faster for everyone and usable by everyone.</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-index">S/05</span>
+            <h3>Open source</h3>
+            <p>I love contributing to tools that help other developers build better things.</p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-index">S/06</span>
+            <h3>Writing & talks</h3>
+            <p>Sharing what I've learned through blog posts, documentation, and occasional conference talks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2 id="contact-heading">Say hi, or just <em>keep in touch</em></h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-intro">
+            <p>I'm always happy to chat about projects, ideas, or just frontend stuff in general. Drop me a line through the form, or reach out directly on any of these platforms.</p>
+
+            <div class="contact-links">
+              <a href="mailto:hello@danreyes.dev" class="contact-link">
+                <span class="contact-icon">
+                  <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                </span>
+                <span class="contact-link-text">hello@danreyes.dev</span>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <a href="https://github.com/danreyes" class="contact-link">
+                <span class="contact-icon">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </span>
+                <span class="contact-link-text">github.com/danreyes</span>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <a href="https://linkedin.com/in/danreyes" class="contact-link">
+                <span class="contact-icon">
+                  <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                </span>
+                <span class="contact-link-text">linkedin.com/in/danreyes</span>
+                <span class="contact-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">Send message</button>
+              <div class="form-status" role="status" aria-live="polite">✓ Sent — talk soon.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 Daniel Reyes · Made with care in Charlotte, NC</span>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="mailto:hello@danreyes.dev">Email</a>
+        <a href="https://github.com/danreyes">GitHub</a>
+        <a href="https://linkedin.com/in/danreyes">LinkedIn</a>
+        <a href="#">↑ Top</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Contact form handling
+      const contactForm = document.getElementById('contact-form');
+      const formStatus = contactForm.querySelector('.form-status');
+
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = contactForm.querySelector('#name');
+        const email = contactForm.querySelector('#email');
+        const message = contactForm.querySelector('#message');
+
+        // Basic validation
+        let isValid = true;
+
+        if (!name.value.trim()) {
+          isValid = false;
+          name.focus();
+          return;
+        }
+
+        if (!email.value.trim() || !isValidEmail(email.value)) {
+          isValid = false;
+          email.focus();
+          return;
+        }
+
+        if (!message.value.trim()) {
+          isValid = false;
+          message.focus();
+          return;
+        }
+
+        if (isValid) {
+          // Show success status
+          formStatus.classList.add('visible');
+
+          // Clear form
+          contactForm.reset();
+
+          // Hide status after 4 seconds
+          setTimeout(function() {
+            formStatus.classList.remove('visible');
+          }, 4000);
+        }
+      });
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      // Smooth scroll for anchor links (with fallback for browsers without CSS smooth scroll)
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+          }
+
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
