@@ -1,78 +1,107 @@
-import { SectionHead } from '../SectionHead';
-import './Skills.css';
+import { SectionHead } from '../SectionHead'
+import { useScrollAnimation } from '../../hooks'
+import {
+  SkillsSectionWrapper,
+  SkillsContentContainer,
+  SkillCategoriesThreeColumnGrid,
+  SkillCategoryContainer,
+  SkillCategoryTitle,
+  SkillCategorySubtitle,
+  SkillItemsList,
+  SkillItemRow,
+  SkillProficiencyLevelLabel,
+} from './styles'
 
-interface SkillGroup {
-  title: string;
-  subtitle: string;
-  skills: { name: string; level: string }[];
+interface SkillCategoryData {
+  categoryTitle: string
+  categorySubtitle: string
+  skillsList: {
+    skillName: string
+    proficiencyLevel: string
+  }[]
 }
 
-const skillGroups: SkillGroup[] = [
+const skillCategoriesData: SkillCategoryData[] = [
   {
-    title: 'Frontend',
-    subtitle: 'Core expertise',
-    skills: [
-      { name: 'React / Next.js', level: 'Expert' },
-      { name: 'TypeScript', level: 'Expert' },
-      { name: 'CSS / Tailwind', level: 'Expert' },
-      { name: 'Design Systems', level: 'Advanced' },
-      { name: 'Testing (Vitest, Playwright)', level: 'Advanced' },
-      { name: 'Animation (Framer Motion)', level: 'Proficient' },
+    categoryTitle: 'Frontend',
+    categorySubtitle: 'Core expertise',
+    skillsList: [
+      { skillName: 'React', proficiencyLevel: 'Expert' },
+      { skillName: 'TypeScript', proficiencyLevel: 'Expert' },
+      { skillName: 'CSS', proficiencyLevel: 'Expert' },
+      { skillName: 'Animation (Framer Motion)', proficiencyLevel: 'Familiar' },
     ],
   },
   {
-    title: 'Backend & Data',
-    subtitle: 'Supporting skills',
-    skills: [
-      { name: 'Node.js', level: 'Advanced' },
-      { name: 'PostgreSQL', level: 'Proficient' },
-      { name: 'Prisma / Drizzle', level: 'Advanced' },
-      { name: 'REST / GraphQL / tRPC', level: 'Advanced' },
-      { name: 'Redis', level: 'Familiar' },
-      { name: 'Python', level: 'Familiar' },
+    categoryTitle: 'Backend & Data',
+    categorySubtitle: 'Supporting skills',
+    skillsList: [
+      { skillName: 'Node.js', proficiencyLevel: 'Familiar' },
+      { skillName: 'MySQL', proficiencyLevel: 'Proficient' },
+      { skillName: 'Azure SQL', proficiencyLevel: 'Proficient' },
+      { skillName: 'REST', proficiencyLevel: 'Advanced' },
+      { skillName: 'C# / .NET10', proficiencyLevel: 'Familiar' },
     ],
   },
   {
-    title: 'Tools & DevOps',
-    subtitle: 'Workflow & infra',
-    skills: [
-      { name: 'Git / GitHub', level: 'Expert' },
-      { name: 'Vercel / Netlify', level: 'Advanced' },
-      { name: 'Docker', level: 'Proficient' },
-      { name: 'CI/CD (GitHub Actions)', level: 'Advanced' },
-      { name: 'Figma', level: 'Proficient' },
-      { name: 'AWS (S3, Lambda)', level: 'Familiar' },
+    categoryTitle: 'Tools & DevOps',
+    categorySubtitle: 'Workflow & infra',
+    skillsList: [
+      { skillName: 'Git / GitHub', proficiencyLevel: 'Expert' },
+      { skillName: 'CI/CD (GitHub Actions)', proficiencyLevel: 'Advanced' },
+      { skillName: 'Figma', proficiencyLevel: 'Familiar' },
+      { skillName: 'Azure DevOps', proficiencyLevel: 'Advanced' },
     ],
   },
-];
+]
 
 export function Skills() {
+  const { elementRef, isVisible } = useScrollAnimation(0.2)
+
   return (
-    <section id="skills" aria-labelledby="skills-heading">
-      <div className="container">
+    <SkillsSectionWrapper
+      id='skills'
+      aria-labelledby='skills-heading'
+      ref={elementRef as React.RefObject<HTMLElement>}
+    >
+      <SkillsContentContainer>
         <SectionHead
-          eyebrow="Skills"
-          title={<>What's in <em>the toolbox</em></>}
-          titleId="skills-heading"
+          eyebrow='Skills'
+          title={
+            <>
+              What's in <em>the toolbox</em>
+            </>
+          }
+          titleId='skills-heading'
         />
 
-        <div className="skills-grid">
-          {skillGroups.map(group => (
-            <div key={group.title} className="skill-group">
-              <h3>{group.title}</h3>
-              <span className="eyebrow">{group.subtitle}</span>
-              <ul className="skill-list">
-                {group.skills.map(skill => (
-                  <li key={skill.name}>
-                    {skill.name}
-                    <span className="skill-level">{skill.level}</span>
-                  </li>
+        <SkillCategoriesThreeColumnGrid>
+          {skillCategoriesData.map((skillCategory, index) => (
+            <SkillCategoryContainer
+              key={skillCategory.categoryTitle}
+              isVisible={isVisible}
+              delay={index * 0.15}
+            >
+              <SkillCategoryTitle variant='h3'>
+                {skillCategory.categoryTitle}
+              </SkillCategoryTitle>
+              <SkillCategorySubtitle>
+                {skillCategory.categorySubtitle}
+              </SkillCategorySubtitle>
+              <SkillItemsList>
+                {skillCategory.skillsList.map((skillItem) => (
+                  <SkillItemRow key={skillItem.skillName}>
+                    {skillItem.skillName}
+                    <SkillProficiencyLevelLabel>
+                      {skillItem.proficiencyLevel}
+                    </SkillProficiencyLevelLabel>
+                  </SkillItemRow>
                 ))}
-              </ul>
-            </div>
+              </SkillItemsList>
+            </SkillCategoryContainer>
           ))}
-        </div>
-      </div>
-    </section>
-  );
+        </SkillCategoriesThreeColumnGrid>
+      </SkillsContentContainer>
+    </SkillsSectionWrapper>
+  )
 }

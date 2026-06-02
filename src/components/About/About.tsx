@@ -1,64 +1,95 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFileLines } from '@fortawesome/free-regular-svg-icons';
-import { SectionHead } from '../SectionHead';
-import './About.css';
-
-const socialLinks = [
-  { href: 'https://github.com/danreyes', icon: faGithub, label: 'GitHub' },
-  { href: 'https://linkedin.com/in/danreyes', icon: faLinkedinIn, label: 'LinkedIn' },
-  { href: 'https://read.cv/danreyes', icon: faFileLines, label: 'read.cv' },
-  { href: 'mailto:hello@danreyes.dev', icon: faEnvelope, label: 'Email' },
-];
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { SectionHead } from '../SectionHead'
+import { socialLinks } from '../../data/links'
+import { useScrollAnimation } from '../../hooks'
+import {
+  AboutSectionWrapper,
+  AboutContentContainer,
+  AboutTwoColumnGrid,
+  ProfileHeadshotImage,
+  BiographyContentContainer,
+  BiographyLeadParagraph,
+  SocialLinksContainer,
+  SocialMediaLinkPill,
+} from './styles'
 
 export function About() {
+  const { elementRef, isVisible } = useScrollAnimation(0.2)
+
   return (
-    <section id="about" aria-labelledby="about-heading">
-      <div className="container">
+    <AboutSectionWrapper
+      id='about'
+      aria-labelledby='about-heading'
+      ref={elementRef as React.RefObject<HTMLElement>}
+    >
+      <AboutContentContainer>
         <SectionHead
-          eyebrow="About"
-          title={<>A quick <em>introduction</em></>}
-          titleId="about-heading"
+          eyebrow='About'
+          title={
+            <>
+              A quick <em>introduction</em>
+            </>
+          }
+          titleId='about-heading'
         />
 
-        <div className="about-grid">
-          <div className="headshot-placeholder">
-            <span>headshot.jpg<br />4:5 portrait</span>
-          </div>
+        <AboutTwoColumnGrid>
+          <ProfileHeadshotImage
+            src='/images/headshot/headshot.jpeg'
+            alt='Eren Ozgur'
+            isVisible={isVisible}
+          />
 
-          <div className="about-content">
-            <p className="lead">
-              Hey, I'm Daniel. I build websites and apps that people actually enjoy using.
+          <BiographyContentContainer isVisible={isVisible}>
+            <BiographyLeadParagraph>
+              Hey, I'm Eren. I build websites and apps that people actually
+              enjoy using.
+            </BiographyLeadParagraph>
+
+            <p>
+              I'm a full stack engineer who loves building things end to end. My
+              sweet spot is on the frontend with React and TypeScript, but I'm
+              just as comfortable jumping into the backend, designing APIs,
+              architecting systems, or wiring up the pieces that make everything
+              work together.
             </p>
 
             <p>
-              By day, I'm a senior frontend engineer on a design systems team at a fintech
-              company here in Charlotte. I spend my time crafting reusable components,
-              obsessing over accessibility, and trying to make interfaces feel just right.
+              Outside of work... where do I even start. I mountain bike, hike,
+              swim, play drums, geek out over airplanes, follow my investments
+              probably more than I should, and somehow still find time to work
+              on side projects. If it sounds like a lot, it is. I just really
+              can't sit still. You can check out some of those projects below.
             </p>
 
-            <p>
-              When I'm not at work, you'll find me tinkering on side projects, contributing
-              to open source, or exploring whatever new web platform feature just landed.
-              I genuinely love this stuff — building for the web still feels like magic to me.
-            </p>
-
-            <div className="social-links">
-              {socialLinks.map(link => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="social-pill"
-                  aria-label={`${link.label} profile`}
+            <SocialLinksContainer>
+              {socialLinks.map((socialLinkItem) => (
+                <SocialMediaLinkPill
+                  key={socialLinkItem.label}
+                  href={socialLinkItem.href}
+                  aria-label={`${socialLinkItem.label} profile`}
+                  target={
+                    socialLinkItem.href.startsWith('mailto:')
+                      ? undefined
+                      : '_blank'
+                  }
+                  rel={
+                    socialLinkItem.href.startsWith('mailto:')
+                      ? undefined
+                      : 'noopener noreferrer'
+                  }
                 >
-                  <FontAwesomeIcon icon={link.icon} aria-hidden="true" />
-                  {link.label}
-                </a>
+                  <FontAwesomeIcon
+                    icon={socialLinkItem.icon}
+                    aria-hidden='true'
+                  />
+                  {socialLinkItem.label}
+                </SocialMediaLinkPill>
               ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+            </SocialLinksContainer>
+          </BiographyContentContainer>
+        </AboutTwoColumnGrid>
+      </AboutContentContainer>
+    </AboutSectionWrapper>
+  )
 }

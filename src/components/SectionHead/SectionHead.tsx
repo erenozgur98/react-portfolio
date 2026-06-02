@@ -1,17 +1,29 @@
-import { ReactNode } from 'react';
-import './SectionHead.css';
+import { ReactNode } from 'react'
+import { useScrollAnimation } from '../../hooks'
+import {
+  SectionHeaderWrapper,
+  SectionEyebrowLabel,
+  SectionMainTitle,
+} from './styles'
 
 interface SectionHeadProps {
-  eyebrow: string;
-  title: ReactNode;
-  titleId: string;
+  eyebrow: string
+  title: ReactNode
+  titleId: string
 }
 
 export function SectionHead({ eyebrow, title, titleId }: SectionHeadProps) {
+  const { elementRef, isVisible } = useScrollAnimation(0.3)
+
   return (
-    <div className="section-head">
-      <span className="eyebrow">{eyebrow}</span>
-      <h2 id={titleId}>{title}</h2>
-    </div>
-  );
+    <SectionHeaderWrapper
+      ref={elementRef as React.RefObject<HTMLDivElement>}
+      isVisible={isVisible}
+    >
+      <SectionEyebrowLabel>{eyebrow}</SectionEyebrowLabel>
+      <SectionMainTitle variant='h2' id={titleId}>
+        {title}
+      </SectionMainTitle>
+    </SectionHeaderWrapper>
+  )
 }

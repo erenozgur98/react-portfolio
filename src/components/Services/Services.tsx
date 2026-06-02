@@ -1,65 +1,87 @@
-import { SectionHead } from '../SectionHead';
-import './Services.css';
+import { SectionHead } from '../SectionHead'
+import { useScrollAnimation } from '../../hooks'
+import {
+  ServicesSectionWrapper,
+  ServicesContentContainer,
+  ServicesThreeColumnGrid,
+  ServiceOfferingCard,
+  ServiceIndexNumberLabel,
+  ServiceCardTitle,
+  ServiceCardDescription,
+} from './styles'
 
-interface Service {
-  index: string;
-  title: string;
-  description: string;
+interface ServiceOfferingData {
+  serviceTitle: string
+  serviceDescription: string
 }
 
-const services: Service[] = [
+const serviceOfferingsData: ServiceOfferingData[] = [
   {
-    index: 'S/01',
-    title: 'Marketing & brand sites',
-    description: 'Fast, beautiful websites that tell your story and actually show up in search results.',
+    serviceTitle: 'Business websites',
+    serviceDescription:
+      'Clean, fast websites for small businesses and startups that look great and actually bring in customers.',
   },
   {
-    index: 'S/02',
-    title: 'Custom web applications',
-    description: 'Interactive tools and dashboards built to solve real problems for your team or customers.',
+    serviceTitle: 'Web applications',
+    serviceDescription:
+      'Full stack apps built end to end, from the UI all the way to the API and database.',
   },
   {
-    index: 'S/03',
-    title: 'Design systems',
-    description: 'Component libraries that scale with your product and keep your UI consistent across teams.',
+    serviceTitle: 'Mobile apps',
+    serviceDescription:
+      'Cross platform mobile apps using React Native that work great on both iOS and Android.',
   },
   {
-    index: 'S/04',
-    title: 'Performance & accessibility',
-    description: 'Audits and fixes that make your site faster for everyone and usable by everyone.',
+    serviceTitle: 'Frontend development',
+    serviceDescription:
+      'React and TypeScript work, whether that is building from scratch, improving what you have, or jumping into an existing codebase.',
   },
   {
-    index: 'S/05',
-    title: 'Open source',
-    description: 'I love contributing to tools that help other developers build better things.',
+    serviceTitle: 'API and backend development',
+    serviceDescription:
+      'Solid backend work including REST APIs, system design, and making sure everything connects the way it should.',
   },
   {
-    index: 'S/06',
-    title: 'Writing & talks',
-    description: 'Sharing what I\'ve learned through blog posts, documentation, and occasional conference talks.',
+    serviceTitle: 'Consulting and code review',
+    serviceDescription:
+      'Need a second pair of eyes? I can review your codebase, help with architecture decisions, or just get you unstuck.',
   },
-];
+]
 
 export function Services() {
+  const { elementRef, isVisible } = useScrollAnimation(0.2)
+
   return (
-    <section id="services" aria-labelledby="services-heading">
-      <div className="container">
+    <ServicesSectionWrapper
+      id='services'
+      aria-labelledby='services-heading'
+      ref={elementRef as React.RefObject<HTMLElement>}
+    >
+      <ServicesContentContainer>
         <SectionHead
-          eyebrow="Services"
-          title={<>Stuff I love <em>working on</em></>}
-          titleId="services-heading"
+          eyebrow='Services'
+          title={
+            <>
+              Stuff I love <em>working on</em>
+            </>
+          }
+          titleId='services-heading'
         />
 
-        <div className="services-grid">
-          {services.map(service => (
-            <article key={service.index} className="service-card">
-              <span className="service-index">{service.index}</span>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </article>
+        <ServicesThreeColumnGrid isVisible={isVisible}>
+          {serviceOfferingsData.map((serviceOffering) => (
+            <ServiceOfferingCard key={serviceOffering.serviceTitle}>
+              <ServiceIndexNumberLabel></ServiceIndexNumberLabel>
+              <ServiceCardTitle variant='h3'>
+                {serviceOffering.serviceTitle}
+              </ServiceCardTitle>
+              <ServiceCardDescription>
+                {serviceOffering.serviceDescription}
+              </ServiceCardDescription>
+            </ServiceOfferingCard>
           ))}
-        </div>
-      </div>
-    </section>
-  );
+        </ServicesThreeColumnGrid>
+      </ServicesContentContainer>
+    </ServicesSectionWrapper>
+  )
 }

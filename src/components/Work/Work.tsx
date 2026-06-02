@@ -1,203 +1,349 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faNpm } from '@fortawesome/free-brands-svg-icons';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { faFileLines } from '@fortawesome/free-regular-svg-icons';
-import { SectionHead } from '../SectionHead';
-import { featuredProject, projects, testimonials } from '../../data/projects';
-import type { Project, Testimonial } from '../../data/projects';
-import './Work.css';
+import type { SyntheticEvent } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faNpm } from '@fortawesome/free-brands-svg-icons'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { faFileLines } from '@fortawesome/free-regular-svg-icons'
+import { SectionHead } from '../SectionHead'
+import { featuredProject, projects, testimonials } from '../../data/projects'
+import type { Project, Testimonial } from '../../data/projects'
+import { useScrollAnimation } from '../../hooks'
+import {
+  WorkSectionWrapper,
+  WorkContentContainer,
+  FeaturedProjectCard,
+  FeaturedProjectTopSection,
+  FeaturedProjectTextContent,
+  FeaturedProjectTitle,
+  FeaturedProjectSubtitle,
+  CaseStudyContentRow,
+  CaseStudySectionLabel,
+  CaseStudyDescriptionText,
+  FeaturedProjectMockupContainer,
+  FeaturedProjectScreenshotImage,
+  BrowserWindowMockupContainer,
+  BrowserWindowTopBar,
+  BrowserWindowTrafficLightDot,
+  BrowserWindowContentArea,
+  BrowserContentPlaceholderLine,
+  FeaturedProjectStatsStrip,
+  StatItemContainer,
+  StatValueNumber,
+  StatLabelText,
+  FeaturedProjectFooter,
+  FeaturedProjectLinksContainer,
+  FeaturedProjectExternalLink,
+  FeaturedProjectTechStackText,
+  FeaturedProjectThumbnailStrip,
+  FeaturedProjectThumbnailStatic,
+  ProjectsAndTestimonialsGrid,
+  ProjectCardContainer,
+  ProjectCardImageContainer,
+  ProjectCardScreenshotImage,
+  ProjectImageFallbackText,
+  ProjectCardContentBody,
+  ProjectCardTitle,
+  ProjectCardDescription,
+  ProjectTechStackBadgesContainer,
+  TechStackBadge,
+  ProjectLinksContainer,
+  ProjectCardExternalLink,
+  TestimonialCardContainer,
+  TestimonialQuoteMark,
+  TestimonialQuoteText,
+  TestimonialCardFooter,
+  TestimonialAuthorAvatar,
+  TestimonialAuthorMetadata,
+  ThumbnailFallbackContainer,
+  ThumbnailFallbackTopBar,
+  ThumbnailFallbackDot,
+  ThumbnailFallbackContent,
+  ThumbnailFallbackLine,
+} from './styles'
 
-function getLinkIcon(type: string) {
-  switch (type) {
+function getProjectLinkIcon(linkType: string) {
+  switch (linkType) {
     case 'github':
-      return faGithub;
+      return faGithub
     case 'npm':
-      return faNpm;
+      return faNpm
     case 'casestudy':
-      return faFileLines;
+      return faFileLines
     default:
-      return faArrowUpRightFromSquare;
+      return faArrowUpRightFromSquare
   }
 }
 
-function getLinkLabel(type: string) {
-  switch (type) {
+function getProjectLinkLabel(linkType: string) {
+  switch (linkType) {
     case 'github':
-      return 'GitHub';
+      return 'GitHub'
     case 'npm':
-      return 'npm';
+      return 'npm'
     case 'casestudy':
-      return 'Case study';
+      return 'Case study'
     default:
-      return 'Live';
+      return 'Live'
   }
 }
 
 export function Work() {
-  // Interleave projects and testimonials
-  const gridItems: Array<{ type: 'project' | 'testimonial'; data: Project | Testimonial }> = [];
-  const maxLen = Math.max(projects.length, testimonials.length);
+  const { elementRef: featuredRef, isVisible: featuredVisible } =
+    useScrollAnimation(0.2)
+  const { elementRef: gridRef, isVisible: gridVisible } =
+    useScrollAnimation(0.1)
 
-  for (let i = 0; i < maxLen; i++) {
-    if (projects[i]) {
-      gridItems.push({ type: 'project', data: projects[i] });
+  const projectsAndTestimonialsGridItems: Array<{
+    itemType: 'project' | 'testimonial'
+    itemData: Project | Testimonial
+  }> = []
+  const maximumItemsLength = Math.max(projects.length, testimonials.length)
+
+  for (let itemIndex = 0; itemIndex < maximumItemsLength; itemIndex++) {
+    if (projects[itemIndex]) {
+      projectsAndTestimonialsGridItems.push({
+        itemType: 'project',
+        itemData: projects[itemIndex],
+      })
     }
-    if (testimonials[i]) {
-      gridItems.push({ type: 'testimonial', data: testimonials[i] });
+    if (testimonials[itemIndex]) {
+      projectsAndTestimonialsGridItems.push({
+        itemType: 'testimonial',
+        itemData: testimonials[itemIndex],
+      })
     }
   }
 
   return (
-    <section id="work" aria-labelledby="work-heading">
-      <div className="container">
+    <WorkSectionWrapper id='work' aria-labelledby='work-heading'>
+      <WorkContentContainer>
         <SectionHead
-          eyebrow="Work"
-          title={<>A few things <em>I've built</em></>}
-          titleId="work-heading"
+          eyebrow='Work'
+          title={
+            <>
+              A few things <em>I've built</em>
+            </>
+          }
+          titleId='work-heading'
         />
 
-        {/* Featured Case Study */}
-        <article className="featured-card">
-          <div className="featured-top">
-            <div className="featured-copy">
+        <FeaturedProjectCard
+          ref={featuredRef as React.RefObject<HTMLElement>}
+          isVisible={featuredVisible}
+        >
+          <FeaturedProjectTopSection>
+            <FeaturedProjectTextContent>
               <div>
-                <h3>{featuredProject.title}</h3>
-                <p className="featured-subtitle">{featuredProject.subtitle}</p>
+                <FeaturedProjectTitle variant='h3'>
+                  {featuredProject.title}
+                </FeaturedProjectTitle>
+                <FeaturedProjectSubtitle>
+                  {featuredProject.subtitle}
+                </FeaturedProjectSubtitle>
               </div>
 
-              <div className="case-row">
-                <span className="eyebrow">Problem</span>
-                <p dangerouslySetInnerHTML={{ __html: featuredProject.problem }} />
-              </div>
+              <CaseStudyContentRow>
+                <CaseStudySectionLabel>Problem</CaseStudySectionLabel>
+                <CaseStudyDescriptionText
+                  dangerouslySetInnerHTML={{ __html: featuredProject.problem }}
+                />
+              </CaseStudyContentRow>
 
-              <div className="case-row">
-                <span className="eyebrow">Solution</span>
-                <p dangerouslySetInnerHTML={{ __html: featuredProject.solution }} />
-              </div>
+              <CaseStudyContentRow>
+                <CaseStudySectionLabel>Solution</CaseStudySectionLabel>
+                <CaseStudyDescriptionText
+                  dangerouslySetInnerHTML={{ __html: featuredProject.solution }}
+                />
+              </CaseStudyContentRow>
 
-              <div className="case-row">
-                <span className="eyebrow">Result</span>
-                <p dangerouslySetInnerHTML={{ __html: featuredProject.result }} />
-              </div>
-            </div>
+              <CaseStudyContentRow>
+                <CaseStudySectionLabel>Result</CaseStudySectionLabel>
+                <CaseStudyDescriptionText
+                  dangerouslySetInnerHTML={{ __html: featuredProject.result }}
+                />
+              </CaseStudyContentRow>
+            </FeaturedProjectTextContent>
 
-            <div className="featured-mockup">
-              <img
+            <FeaturedProjectMockupContainer>
+              <FeaturedProjectScreenshotImage
                 src={featuredProject.image}
                 alt={`${featuredProject.title} screenshot`}
-                className="featured-image"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  target.style.display = 'none';
-                  const fallback = target.nextElementSibling as HTMLElement;
-                  if (fallback) fallback.style.display = 'block';
+                onError={(event: SyntheticEvent<HTMLImageElement>) => {
+                  const imageElement = event.currentTarget
+                  imageElement.style.display = 'none'
+                  const fallbackElement =
+                    imageElement.nextElementSibling as HTMLElement
+                  if (fallbackElement) fallbackElement.style.display = 'block'
                 }}
               />
-              <div className="browser-window" style={{ display: 'none' }}>
-                <div className="browser-bar">
-                  <div className="browser-dot" />
-                  <div className="browser-dot" />
-                  <div className="browser-dot" />
-                </div>
-                <div className="browser-content">
-                  <div className="browser-line" />
-                  <div className="browser-line" />
-                  <div className="browser-line" />
-                  <div className="browser-line" />
-                </div>
-              </div>
-            </div>
-          </div>
+              <BrowserWindowMockupContainer sx={{ display: 'none' }}>
+                <BrowserWindowTopBar>
+                  <BrowserWindowTrafficLightDot />
+                  <BrowserWindowTrafficLightDot />
+                  <BrowserWindowTrafficLightDot />
+                </BrowserWindowTopBar>
+                <BrowserWindowContentArea>
+                  <BrowserContentPlaceholderLine />
+                  <BrowserContentPlaceholderLine />
+                  <BrowserContentPlaceholderLine />
+                  <BrowserContentPlaceholderLine />
+                </BrowserWindowContentArea>
+              </BrowserWindowMockupContainer>
+            </FeaturedProjectMockupContainer>
+          </FeaturedProjectTopSection>
 
-          <div className="stats-strip">
-            {featuredProject.stats.map(stat => (
-              <div key={stat.label} className="stat">
-                <div className="stat-number">{stat.value}</div>
-                <div className="stat-label">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="featured-footer">
-            <div className="featured-links">
-              {featuredProject.links.map(link => (
-                <a key={link.type} href={link.url} className="featured-link">
-                  <FontAwesomeIcon icon={getLinkIcon(link.type)} aria-hidden="true" />
-                  {getLinkLabel(link.type)}
-                </a>
+          {featuredProject.images && featuredProject.images.length > 1 && (
+            <FeaturedProjectThumbnailStrip>
+              {featuredProject.images.map((image, index) => (
+                <FeaturedProjectThumbnailStatic key={index}>
+                  <img
+                    src={image}
+                    alt={`${featuredProject.title} thumbnail ${index + 1}`}
+                    onError={(event: SyntheticEvent<HTMLImageElement>) => {
+                      event.currentTarget.style.display = 'none'
+                      const fallback = event.currentTarget
+                        .nextElementSibling as HTMLElement
+                      if (fallback) fallback.style.display = 'flex'
+                    }}
+                  />
+                  <ThumbnailFallbackContainer sx={{ display: 'none' }}>
+                    <ThumbnailFallbackTopBar>
+                      <ThumbnailFallbackDot />
+                      <ThumbnailFallbackDot />
+                      <ThumbnailFallbackDot />
+                    </ThumbnailFallbackTopBar>
+                    <ThumbnailFallbackContent>
+                      <ThumbnailFallbackLine />
+                      <ThumbnailFallbackLine />
+                    </ThumbnailFallbackContent>
+                  </ThumbnailFallbackContainer>
+                </FeaturedProjectThumbnailStatic>
               ))}
-            </div>
-            <span className="featured-stack">{featuredProject.stack.join(' · ')}</span>
-          </div>
-        </article>
+            </FeaturedProjectThumbnailStrip>
+          )}
 
-        {/* Project & Testimonial Grid */}
-        <div className="work-grid">
-          {gridItems.map((item) => {
-            if (item.type === 'project') {
-              const project = item.data as Project;
+          <FeaturedProjectStatsStrip>
+            {featuredProject.stats.map((statItem) => (
+              <StatItemContainer key={statItem.label}>
+                <StatValueNumber>{statItem.value}</StatValueNumber>
+                <StatLabelText>{statItem.label}</StatLabelText>
+              </StatItemContainer>
+            ))}
+          </FeaturedProjectStatsStrip>
+
+          <FeaturedProjectFooter>
+            <FeaturedProjectLinksContainer>
+              {featuredProject.links.map((projectLink) => (
+                <FeaturedProjectExternalLink
+                  key={projectLink.type}
+                  href={projectLink.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <FontAwesomeIcon
+                    icon={getProjectLinkIcon(projectLink.type)}
+                    aria-hidden='true'
+                  />
+                  {getProjectLinkLabel(projectLink.type)}
+                </FeaturedProjectExternalLink>
+              ))}
+            </FeaturedProjectLinksContainer>
+            <FeaturedProjectTechStackText>
+              {featuredProject.stack.join(' · ')}
+            </FeaturedProjectTechStackText>
+          </FeaturedProjectFooter>
+        </FeaturedProjectCard>
+
+        <ProjectsAndTestimonialsGrid
+          ref={gridRef as React.RefObject<HTMLDivElement>}
+          isVisible={gridVisible}
+        >
+          {projectsAndTestimonialsGridItems.map((gridItem) => {
+            if (gridItem.itemType === 'project') {
+              const projectData = gridItem.itemData as Project
               return (
-                <article key={project.id} className="project-card">
-                  <div className="project-art">
-                    <img
-                      src={project.image}
-                      alt={`${project.title} screenshot`}
-                      className="project-image"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        target.style.display = 'none';
-                        const fallback = target.nextElementSibling as HTMLElement;
-                        if (fallback) fallback.style.display = 'block';
+                <ProjectCardContainer key={projectData.id}>
+                  <ProjectCardImageContainer>
+                    <ProjectCardScreenshotImage
+                      src={projectData.image}
+                      alt={`${projectData.title} screenshot`}
+                      onError={(event: SyntheticEvent<HTMLImageElement>) => {
+                        const imageElement = event.currentTarget
+                        imageElement.style.display = 'none'
+                        const fallbackElement =
+                          imageElement.nextElementSibling as HTMLElement
+                        if (fallbackElement)
+                          fallbackElement.style.display = 'block'
                       }}
                     />
-                    <span className="project-art-fallback" style={{ display: 'none' }}>
-                      {project.image.split('/').pop()}
-                    </span>
-                  </div>
-                  <div className="project-body">
-                    <h4>{project.title}</h4>
-                    <p>{project.description}</p>
-                    <div className="project-stack">
-                      {project.stack.map(tech => (
-                        <span key={tech} className="tech-badge">{tech}</span>
+                    <ProjectImageFallbackText sx={{ display: 'none' }}>
+                      {projectData.image.split('/').pop()}
+                    </ProjectImageFallbackText>
+                  </ProjectCardImageContainer>
+                  <ProjectCardContentBody>
+                    <ProjectCardTitle variant='h4'>
+                      {projectData.title}
+                    </ProjectCardTitle>
+                    <ProjectCardDescription>
+                      {projectData.description}
+                    </ProjectCardDescription>
+                    <ProjectTechStackBadgesContainer>
+                      {projectData.stack.map((technologyName) => (
+                        <TechStackBadge key={technologyName}>
+                          {technologyName}
+                        </TechStackBadge>
                       ))}
-                    </div>
-                    <div className="project-links">
-                      {project.links.map(link => (
-                        <a key={link.type} href={link.url} className="project-link">
-                          <FontAwesomeIcon icon={getLinkIcon(link.type)} aria-hidden="true" />
-                          {getLinkLabel(link.type)}
-                        </a>
+                    </ProjectTechStackBadgesContainer>
+                    <ProjectLinksContainer>
+                      {projectData.links.map((projectLink) => (
+                        <ProjectCardExternalLink
+                          key={projectLink.type}
+                          href={projectLink.url}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                        >
+                          <FontAwesomeIcon
+                            icon={getProjectLinkIcon(projectLink.type)}
+                            aria-hidden='true'
+                          />
+                          {getProjectLinkLabel(projectLink.type)}
+                        </ProjectCardExternalLink>
                       ))}
-                    </div>
-                  </div>
-                </article>
-              );
+                    </ProjectLinksContainer>
+                  </ProjectCardContentBody>
+                </ProjectCardContainer>
+              )
             } else {
-              const testimonial = item.data as Testimonial;
+              const testimonialData = gridItem.itemData as Testimonial
               return (
-                <article key={testimonial.id} className="testimonial-card">
-                  <span className="quote-mark" aria-hidden="true">"</span>
-                  <blockquote>{testimonial.quote}</blockquote>
-                  <footer className="testimonial-footer">
-                    <div className="testimonial-avatar">
-                      {testimonial.avatar ? (
-                        <img src={testimonial.avatar} alt={testimonial.name} />
+                <TestimonialCardContainer key={testimonialData.id}>
+                  <TestimonialQuoteMark aria-hidden='true'>
+                    "
+                  </TestimonialQuoteMark>
+                  <TestimonialQuoteText>
+                    {testimonialData.quote}
+                  </TestimonialQuoteText>
+                  <TestimonialCardFooter>
+                    <TestimonialAuthorAvatar>
+                      {testimonialData.avatar ? (
+                        <img
+                          src={testimonialData.avatar}
+                          alt={testimonialData.name}
+                        />
                       ) : (
-                        testimonial.initials
+                        testimonialData.initials
                       )}
-                    </div>
-                    <div className="testimonial-meta">
-                      <strong>{testimonial.name}</strong>
-                      <span>{testimonial.role}</span>
-                    </div>
-                  </footer>
-                </article>
-              );
+                    </TestimonialAuthorAvatar>
+                    <TestimonialAuthorMetadata>
+                      <strong>{testimonialData.name}</strong>
+                      <span>{testimonialData.role}</span>
+                    </TestimonialAuthorMetadata>
+                  </TestimonialCardFooter>
+                </TestimonialCardContainer>
+              )
             }
           })}
-        </div>
-      </div>
-    </section>
-  );
+        </ProjectsAndTestimonialsGrid>
+      </WorkContentContainer>
+    </WorkSectionWrapper>
+  )
 }

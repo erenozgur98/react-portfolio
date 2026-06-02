@@ -1,143 +1,189 @@
-import { useState, FormEvent } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { SectionHead } from '../SectionHead';
-import './Contact.css';
+import { useState, FormEvent, ChangeEvent } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { SectionHead } from '../SectionHead'
+import { socialLinks } from '../../data/links'
+import { useScrollAnimation } from '../../hooks'
+import {
+  ContactSectionWrapper,
+  ContactContentContainer,
+  ContactTwoColumnGrid,
+  ContactInfoColumn,
+  ContactMethodLinksList,
+  ContactMethodLinkItem,
+  ContactMethodIconBox,
+  ContactMethodLinkText,
+  ContactLinkArrowIndicator,
+  ContactFormCard,
+  FormFieldGroup,
+  FormFieldLabel,
+  FormTextInput,
+  FormTextareaInput,
+  FormSubmitButton,
+  FormSubmissionStatusMessage,
+} from './styles'
 
-const contactLinks = [
-  {
-    href: 'mailto:hello@danreyes.dev',
-    icon: faEnvelope,
-    label: 'hello@danreyes.dev',
-  },
-  {
-    href: 'https://github.com/danreyes',
-    icon: faGithub,
-    label: 'github.com/danreyes',
-  },
-  {
-    href: 'https://linkedin.com/in/danreyes',
-    icon: faLinkedinIn,
-    label: 'linkedin.com/in/danreyes',
-  },
-];
-
-function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+function isValidEmailAddress(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
 export function Contact() {
-  const [formData, setFormData] = useState({
+  const [contactFormData, setContactFormData] = useState({
     name: '',
     email: '',
     message: '',
-  });
-  const [showStatus, setShowStatus] = useState(false);
+  })
+  const [isSubmissionSuccessVisible, setIsSubmissionSuccessVisible] =
+    useState(false)
+  const { elementRef, isVisible } = useScrollAnimation(0.2)
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
+  const handleContactFormSubmit = (event: FormEvent) => {
+    event.preventDefault()
 
-    if (!formData.name.trim()) return;
-    if (!formData.email.trim() || !isValidEmail(formData.email)) return;
-    if (!formData.message.trim()) return;
+    if (!contactFormData.name.trim()) return
+    if (
+      !contactFormData.email.trim() ||
+      !isValidEmailAddress(contactFormData.email)
+    )
+      return
+    if (!contactFormData.message.trim()) return
 
-    // Show success status
-    setShowStatus(true);
+    setIsSubmissionSuccessVisible(true)
+    setContactFormData({ name: '', email: '', message: '' })
 
-    // Clear form
-    setFormData({ name: '', email: '', message: '' });
-
-    // Hide status after 4 seconds
     setTimeout(() => {
-      setShowStatus(false);
-    }, 4000);
-  };
+      setIsSubmissionSuccessVisible(false)
+    }, 4000)
+  }
 
   return (
-    <section id="contact" aria-labelledby="contact-heading">
-      <div className="container">
+    <ContactSectionWrapper
+      id='contact'
+      aria-labelledby='contact-heading'
+      ref={elementRef as React.RefObject<HTMLElement>}
+    >
+      <ContactContentContainer>
         <SectionHead
-          eyebrow="Contact"
-          title={<>Say hi, or just <em>keep in touch</em></>}
-          titleId="contact-heading"
+          eyebrow='Contact'
+          title={
+            <>
+              Say hi, or just <em>keep in touch</em>
+            </>
+          }
+          titleId='contact-heading'
         />
 
-        <div className="contact-grid">
-          <div className="contact-intro">
+        <ContactTwoColumnGrid isVisible={isVisible}>
+          <ContactInfoColumn>
             <p>
-              I'm always happy to chat about projects, ideas, or just frontend stuff in
-              general. Drop me a line through the form, or reach out directly on any of
-              these platforms.
+              I'm always happy to chat about projects, ideas, or just tech stuff
+              in general. Drop me a line through the form, or reach out directly
+              on any of these platforms.
             </p>
 
-            <div className="contact-links">
-              {contactLinks.map(link => (
-                <a key={link.href} href={link.href} className="contact-link">
-                  <span className="contact-icon">
-                    <FontAwesomeIcon icon={link.icon} aria-hidden="true" />
-                  </span>
-                  <span className="contact-link-text">{link.label}</span>
-                  <span className="contact-arrow">→</span>
-                </a>
+            <ContactMethodLinksList>
+              {socialLinks.map((socialLinkItem) => (
+                <ContactMethodLinkItem
+                  key={socialLinkItem.href}
+                  href={socialLinkItem.href}
+                  target={
+                    socialLinkItem.href.startsWith('mailto:')
+                      ? undefined
+                      : '_blank'
+                  }
+                  rel={
+                    socialLinkItem.href.startsWith('mailto:')
+                      ? undefined
+                      : 'noopener noreferrer'
+                  }
+                >
+                  <ContactMethodIconBox>
+                    <FontAwesomeIcon
+                      icon={socialLinkItem.icon}
+                      aria-hidden='true'
+                    />
+                  </ContactMethodIconBox>
+                  <ContactMethodLinkText>
+                    {socialLinkItem.displayText || socialLinkItem.label}
+                  </ContactMethodLinkText>
+                  <ContactLinkArrowIndicator className='contact-link-arrow-indicator'>
+                    →
+                  </ContactLinkArrowIndicator>
+                </ContactMethodLinkItem>
               ))}
-            </div>
-          </div>
+            </ContactMethodLinksList>
+          </ContactInfoColumn>
 
-          <div className="contact-form-card">
-            <form id="contact-form" onSubmit={handleSubmit} noValidate>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
+          <ContactFormCard>
+            <form
+              id='contact-form'
+              onSubmit={handleContactFormSubmit}
+              noValidate
+            >
+              <FormFieldGroup>
+                <FormFieldLabel htmlFor='name'>Name</FormFieldLabel>
+                <FormTextInput
+                  type='text'
+                  id='name'
+                  name='name'
+                  placeholder='Your name'
                   required
-                  value={formData.name}
-                  onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                  value={contactFormData.name}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                    setContactFormData((previousData) => ({
+                      ...previousData,
+                      name: event.target.value,
+                    }))
+                  }
                 />
-              </div>
+              </FormFieldGroup>
 
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="you@example.com"
+              <FormFieldGroup>
+                <FormFieldLabel htmlFor='email'>Email</FormFieldLabel>
+                <FormTextInput
+                  type='email'
+                  id='email'
+                  name='email'
+                  placeholder='you@example.com'
                   required
-                  value={formData.email}
-                  onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                  value={contactFormData.email}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                    setContactFormData((previousData) => ({
+                      ...previousData,
+                      email: event.target.value,
+                    }))
+                  }
                 />
-              </div>
+              </FormFieldGroup>
 
-              <div className="form-group">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
+              <FormFieldGroup>
+                <FormFieldLabel htmlFor='message'>Message</FormFieldLabel>
+                <FormTextareaInput
+                  id='message'
+                  name='message'
                   placeholder="What's on your mind?"
                   required
-                  value={formData.message}
-                  onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                  value={contactFormData.message}
+                  onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
+                    setContactFormData((previousData) => ({
+                      ...previousData,
+                      message: event.target.value,
+                    }))
+                  }
                 />
-              </div>
+              </FormFieldGroup>
 
-              <button type="submit" className="submit-btn">
-                Send message
-              </button>
-              <div
-                className={`form-status ${showStatus ? 'visible' : ''}`}
-                role="status"
-                aria-live="polite"
+              <FormSubmitButton type='submit'>Send message</FormSubmitButton>
+              <FormSubmissionStatusMessage
+                isStatusVisible={isSubmissionSuccessVisible}
+                role='status'
+                aria-live='polite'
               >
-                ✓ Sent — talk soon.
-              </div>
+                ✓ Sent - talk soon.
+              </FormSubmissionStatusMessage>
             </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+          </ContactFormCard>
+        </ContactTwoColumnGrid>
+      </ContactContentContainer>
+    </ContactSectionWrapper>
+  )
 }
