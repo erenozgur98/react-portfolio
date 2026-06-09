@@ -8,6 +8,7 @@ export interface Project {
   description: string;
   image: string; // Place images in public/images/projects/
   images?: string[]; // Optional: array of images for gallery view
+  isMobileApp?: boolean; // If true, shows full-height screenshots in lightbox
   stack: string[];
   links: { type: 'live' | 'github' | 'npm' | 'casestudy'; url: string }[];
 }
@@ -35,18 +36,21 @@ export interface Testimonial {
   avatar?: string; // Optional: place in public/images/avatars/
 }
 
+const notAvailableToThePublicYet = '( Not available to the public yet - DM me if you want early access! )';
+const itIsAvailableForBetaTesting = '( This app is available for Beta testing - DM me if you are interested! )';
+
 // ===========================================
 // FEATURED PROJECT (the big case study card)
 // ===========================================
-export const featuredProject: FeaturedProject = {
+export const featuredProjectData: FeaturedProject = {
   id: 'featured-movieception',
   title: 'Movieception',
   subtitle: 'A full-stack app for tracking movies and TV shows - watched, watching, or want to watch - with a clean UI that stays out of your way.',
-  image: '/images/projects/movieception.png',
+  image: '/images/projects/movieception/Movieception-1.png',
   images: [
-    '/images/projects/movieception.png',
-    '/images/projects/movieception.png',
-    '/images/projects/movieception.png',
+    '/images/projects/movieception/Movieception-2.png',
+    '/images/projects/movieception/Movieception-3.png',
+    '/images/projects/movieception/Movieception-4.png',
   ],
   problem: 'Every movie tracker is either too bloated or too basic. I wanted something <strong>clean and minimal</strong> - and used it as a reason to build a real full-stack app.',
   solution: 'Built it end to end with <strong>React/TypeScript</strong> on the frontend, a <strong>.NET 10 C# REST API</strong>, Azure SQL for the database, and <strong>Auth0</strong> for auth. Deployed to Azure App Service on Linux with a custom domain.',
@@ -66,18 +70,62 @@ export const featuredProject: FeaturedProject = {
 // ===========================================
 // PROJECTS (the smaller project cards)
 // ===========================================
-export const projects: Project[] = [
-  // {
-  //   id: 'project-1',
-  //   title: 'Lattice',
-  //   description: 'A therapy scheduling platform that makes booking sessions as simple as picking a time. Built for a local mental health practice.',
-  //   image: '/images/projects/lattice.png',
-  //   stack: ['Next.js', 'Prisma', 'Stripe'],
-  //   links: [
-  //     { type: 'live', url: 'https://example.com' },
-  //     { type: 'github', url: 'https://github.com/yourname/lattice' },
-  //   ],
-  // },
+export const projectsData: Project[] = [
+  {
+    id: 'points-nav',
+    title: 'Points Nav',
+    description: `An app that allows users to use their Credit Card points to book cheaper flights. ${notAvailableToThePublicYet}`,
+    image: '/images/projects/points-nav/PointsNav-1.png',
+    images: [
+      '/images/projects/points-nav/PointsNav-2.png',
+      '/images/projects/points-nav/PointsNav-3.png',
+      '/images/projects/points-nav/PointsNav-4.png',
+      '/images/projects/points-nav/PointsNav-5.png',
+      '/images/projects/points-nav/PointsNav-6.png',
+      '/images/projects/points-nav/PointsNav-7.png',
+    ],
+    isMobileApp: true,
+    stack: ['React-Native', 'TypeScript', 'Expo'],
+    links: [
+      { type: 'live', url: '' },
+      { type: 'github', url: '' },
+    ]
+  },
+  {
+    id: 'route-routine',
+    title: 'Route Routine',
+    description: `Main feature of this app is to help you validate parking in parking lots when you have a QR code or a link for validation. ${itIsAvailableForBetaTesting}`,
+    image: '/images/projects/route-routine/RouteRoutine-1.png',
+    images: [
+      '/images/projects/route-routine/RouteRoutine-2.png',
+      '/images/projects/route-routine/RouteRoutine-3.png',
+      '/images/projects/route-routine/RouteRoutine-4.png',
+      '/images/projects/route-routine/RouteRoutine-5.png',
+      '/images/projects/route-routine/RouteRoutine-6.png',
+      '/images/projects/route-routine/RouteRoutine-7.png',
+    ],
+    isMobileApp: true,
+    stack: ['React', 'TypeScript', 'Material UI'],
+    links: [
+      { type: 'live', url: '' },
+      { type: 'github', url: '' },
+    ]
+  },
+  {
+    id: 'weekly-eats',
+    title: 'Weekly Eats',
+    description: `A meal planning app that generates a new weekly meal plan every Sunday based on your dietary preferences and favorite cuisines. ${notAvailableToThePublicYet}`,
+    image: '/images/projects/weekly-eats/WeeklyEats-1.png',
+    images: [
+      '/images/projects/weekly-eats/WeeklyEats-2.png',
+      '/images/projects/weekly-eats/WeeklyEats-3.png',
+    ],
+    stack: ['React', 'TypeScript', 'Material UI'],
+    links: [
+      { type: 'live', url: '' },
+      { type: 'github', url: '' },
+    ]
+  }
   // {
   //   id: 'project-2',
   //   title: 'Plotpoint',
@@ -113,9 +161,9 @@ export const projects: Project[] = [
 ];
 
 // ===========================================
-// TESTIMONIALS (interlaced with projects)
+// TESTIMONIALS (interlaced with projects) - commented out for now
 // ===========================================
-export const testimonials: Testimonial[] = [
+export const testimonialsData: Testimonial[] = [
   // {
   //   id: 'testimonial-1',
   //   quote: 'Daniel brought clarity to a messy codebase and shipped features faster than we thought possible. His component work cut our dev time in half.',

@@ -3,41 +3,26 @@ import {
   fontFamilyMonospace,
   fontFamilySerif,
   colors,
-  containerMaxWidthDesktop,
-  containerMaxWidthMobile,
 } from '../../theme'
+import { AnimatedSectionProps } from '../../types/styled'
+import { SectionWrapper, SectionContentContainer } from '../../styles/SharedLayoutComponents'
 
-export interface AnimatedProps {
-  isVisible: boolean
-}
+export const ContactSectionWrapper = SectionWrapper
 
-export const ContactSectionWrapper = styled('section')(({ theme }) => ({
-  padding: '96px 0',
-  [theme.breakpoints.down('md')]: {
-    padding: '64px 0',
-  },
-}))
+export const ContactContentContainer = SectionContentContainer
 
-export const ContactContentContainer = styled(Box)(({ theme }) => ({
-  width: containerMaxWidthDesktop,
-  margin: '0 auto',
-  [theme.breakpoints.down('sm')]: {
-    width: containerMaxWidthMobile,
-  },
-}))
-
-export const ContactTwoColumnGrid = styled(Box)<AnimatedProps>(({ theme, isVisible }) => ({
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  gap: '48px',
-  alignItems: 'start',
-  opacity: isVisible ? 1 : 0,
-  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-  transition: 'opacity 0.6s ease, transform 0.6s ease',
-  [theme.breakpoints.down('md')]: {
-    gridTemplateColumns: '1fr',
-    gap: '40px',
-  },
+export const ContactTwoColumnGrid = styled(Box)<AnimatedSectionProps>(({ theme, isVisible }) => ({
+  // display: 'grid',
+  // gridTemplateColumns: '1fr 1fr',
+  // gap: '48px',
+  // alignItems: 'start',
+  // opacity: isVisible ? 1 : 0,
+  // transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+  // transition: 'opacity 0.6s ease, transform 0.6s ease',
+  // [theme.breakpoints.down('md')]: {
+  //   gridTemplateColumns: '1fr',
+  //   gap: '40px',
+  // },
 }))
 
 export const ContactInfoColumn = styled(Box)({

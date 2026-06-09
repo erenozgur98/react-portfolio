@@ -3,28 +3,13 @@ import {
   fontFamilyMonospace,
   fontFamilySerif,
   colors,
-  containerMaxWidthDesktop,
-  containerMaxWidthMobile,
 } from '../../theme'
+import { AnimatedSectionProps } from '../../types/styled'
+import { SectionWrapper, SectionContentContainer } from '../../styles/SharedLayoutComponents'
 
-export interface AnimatedProps {
-  isVisible: boolean
-}
+export const AboutSectionWrapper = SectionWrapper
 
-export const AboutSectionWrapper = styled('section')(({ theme }) => ({
-  padding: '96px 0',
-  [theme.breakpoints.down('md')]: {
-    padding: '64px 0',
-  },
-}))
-
-export const AboutContentContainer = styled(Box)(({ theme }) => ({
-  width: containerMaxWidthDesktop,
-  margin: '0 auto',
-  [theme.breakpoints.down('sm')]: {
-    width: containerMaxWidthMobile,
-  },
-}))
+export const AboutContentContainer = SectionContentContainer
 
 export const AboutTwoColumnGrid = styled(Box)(({ theme }) => ({
   display: 'grid',
@@ -37,7 +22,7 @@ export const AboutTwoColumnGrid = styled(Box)(({ theme }) => ({
   },
 }))
 
-export const ProfileHeadshotImage = styled('img')<AnimatedProps>(({ isVisible }) => ({
+export const ProfileHeadshotImage = styled('img')<AnimatedSectionProps>(({ isVisible }) => ({
   width: '100%',
   aspectRatio: '4 / 5',
   objectFit: 'cover',
@@ -49,7 +34,7 @@ export const ProfileHeadshotImage = styled('img')<AnimatedProps>(({ isVisible })
   transition: 'opacity 0.6s ease, transform 0.6s ease',
 }))
 
-export const BiographyContentContainer = styled(Box)<AnimatedProps>(
+export const BiographyContentContainer = styled(Box)<AnimatedSectionProps>(
   ({ isVisible }) => ({
     '& p': {
       color: colors.textSecondary,

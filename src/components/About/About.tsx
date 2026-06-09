@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SectionHead } from '../SectionHead'
-import { socialLinks } from '../../data/links'
+import { socialLinksData } from '../../data/links'
 import { useScrollAnimation } from '../../hooks'
 import {
   AboutSectionWrapper,
@@ -27,7 +27,7 @@ export function About() {
           eyebrow='About'
           title={
             <>
-              A quick <em>introduction</em>
+              <em>Introduction</em>
             </>
           }
           titleId='about-heading'
@@ -55,15 +55,14 @@ export function About() {
             </p>
 
             <p>
-              Outside of work... where do I even start. I mountain bike, hike,
-              swim, play drums, geek out over airplanes, follow my investments
-              probably more than I should, and somehow still find time to work
-              on side projects. If it sounds like a lot, it is. I just really
-              can't sit still. You can check out some of those projects below.
+              Outside of work... I mountain bike, hike, swim, play drums, geek
+              out over airplanes, follow my investments, and somehow still find
+              time to work on side projects. I just really can't sit still. You
+              can check out some of those projects below.
             </p>
 
             <SocialLinksContainer>
-              {socialLinks.map((socialLinkItem) => (
+              {socialLinksData.map((socialLinkItem) => (
                 <SocialMediaLinkPill
                   key={socialLinkItem.label}
                   href={socialLinkItem.href}

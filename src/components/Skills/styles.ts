@@ -4,29 +4,13 @@ import {
   fontFamilySansSerif,
   fontFamilySerif,
   colors,
-  containerMaxWidthDesktop,
-  containerMaxWidthMobile,
 } from '../../theme'
+import { AnimatedSectionWithDelayProps } from '../../types/styled'
+import { SectionWrapper, SectionContentContainer } from '../../styles/SharedLayoutComponents'
 
-export interface AnimatedProps {
-  isVisible: boolean
-  delay?: number
-}
+export const SkillsSectionWrapper = SectionWrapper
 
-export const SkillsSectionWrapper = styled('section')(({ theme }) => ({
-  padding: '96px 0',
-  [theme.breakpoints.down('md')]: {
-    padding: '64px 0',
-  },
-}))
-
-export const SkillsContentContainer = styled(Box)(({ theme }) => ({
-  width: containerMaxWidthDesktop,
-  margin: '0 auto',
-  [theme.breakpoints.down('sm')]: {
-    width: containerMaxWidthMobile,
-  },
-}))
+export const SkillsContentContainer = SectionContentContainer
 
 export const SkillCategoriesThreeColumnGrid = styled(Box)(({ theme }) => ({
   display: 'grid',
@@ -38,7 +22,7 @@ export const SkillCategoriesThreeColumnGrid = styled(Box)(({ theme }) => ({
   },
 }))
 
-export const SkillCategoryContainer = styled(Box)<AnimatedProps>(
+export const SkillCategoryContainer = styled(Box)<AnimatedSectionWithDelayProps>(
   ({ isVisible, delay = 0 }) => ({
     opacity: isVisible ? 1 : 0,
     transform: isVisible ? 'translateY(0)' : 'translateY(30px)',

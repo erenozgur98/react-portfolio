@@ -5,10 +5,7 @@ import {
   containerMaxWidthDesktop,
   containerMaxWidthMobile,
 } from '../../theme'
-
-export interface AnimatedProps {
-  isVisible: boolean
-}
+import { AnimatedSectionProps } from '../../types/styled'
 
 export const FooterSection = styled('footer')({
   background: colors.sectionBackgroundAlternate,
@@ -16,7 +13,7 @@ export const FooterSection = styled('footer')({
   padding: '32px 0',
 })
 
-export const FooterContentContainer = styled(Box)<AnimatedProps>(({ theme, isVisible }) => ({
+export const FooterContentContainer = styled(Box)<AnimatedSectionProps>(({ theme, isVisible }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',

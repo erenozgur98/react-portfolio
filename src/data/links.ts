@@ -9,7 +9,7 @@ export interface SocialLink {
   displayText?: string // For contact section where we show the URL
 }
 
-export const socialLinks: SocialLink[] = [
+export const socialLinksData: SocialLink[] = [
   {
     href: 'https://github.com/erenozgur98',
     icon: faGithub,

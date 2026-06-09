@@ -1,7 +1,7 @@
 import { useState, FormEvent, ChangeEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SectionHead } from '../SectionHead'
-import { socialLinks } from '../../data/links'
+import { socialLinksData } from '../../data/links'
 import { useScrollAnimation } from '../../hooks'
 import {
   ContactSectionWrapper,
@@ -66,7 +66,7 @@ export function Contact() {
           eyebrow='Contact'
           title={
             <>
-              Say hi, or just <em>keep in touch</em>
+              <em>Keep in touch</em>
             </>
           }
           titleId='contact-heading'
@@ -81,7 +81,7 @@ export function Contact() {
             </p>
 
             <ContactMethodLinksList>
-              {socialLinks.map((socialLinkItem) => (
+              {socialLinksData.map((socialLinkItem) => (
                 <ContactMethodLinkItem
                   key={socialLinkItem.href}
                   href={socialLinkItem.href}
@@ -113,7 +113,7 @@ export function Contact() {
             </ContactMethodLinksList>
           </ContactInfoColumn>
 
-          <ContactFormCard>
+          {/* <ContactFormCard>
             <form
               id='contact-form'
               onSubmit={handleContactFormSubmit}
@@ -181,7 +181,7 @@ export function Contact() {
                 ✓ Sent - talk soon.
               </FormSubmissionStatusMessage>
             </form>
-          </ContactFormCard>
+          </ContactFormCard> */}
         </ContactTwoColumnGrid>
       </ContactContentContainer>
     </ContactSectionWrapper>

@@ -4,30 +4,15 @@ import {
   fontFamilySansSerif,
   fontFamilySerif,
   colors,
-  containerMaxWidthDesktop,
-  containerMaxWidthMobile,
 } from '../../theme'
+import { AnimatedSectionProps } from '../../types/styled'
+import { SectionWrapper, SectionContentContainer } from '../../styles/SharedLayoutComponents'
 
-export interface AnimatedProps {
-  isVisible: boolean
-}
+export const WorkSectionWrapper = SectionWrapper
 
-export const WorkSectionWrapper = styled('section')(({ theme }) => ({
-  padding: '96px 0',
-  [theme.breakpoints.down('md')]: {
-    padding: '64px 0',
-  },
-}))
+export const WorkContentContainer = SectionContentContainer
 
-export const WorkContentContainer = styled(Box)(({ theme }) => ({
-  width: containerMaxWidthDesktop,
-  margin: '0 auto',
-  [theme.breakpoints.down('sm')]: {
-    width: containerMaxWidthMobile,
-  },
-}))
-
-export const FeaturedProjectCard = styled('article')<AnimatedProps>(({ isVisible }) => ({
+export const FeaturedProjectCardWrapper = styled('article')<AnimatedSectionProps>(({ isVisible }) => ({
   background: colors.cardBackground,
   border: `1px solid ${colors.borderLight}`,
   borderRadius: '12px',
@@ -102,22 +87,26 @@ export const CaseStudyDescriptionText = styled('p')({
   },
 })
 
-export const FeaturedProjectMockupContainer = styled(Box)({
+export const FeaturedProjectMockupContainer = styled(Box)(({ theme }) => ({
   background: `linear-gradient(135deg, ${colors.sectionBackgroundAlternate} 0%, rgba(111, 164, 142, 0.3) 100%)`,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '40px',
-  minHeight: '320px',
+  padding: '32px',
+  minHeight: '400px',
   overflow: 'hidden',
-})
+  [theme.breakpoints.down('md')]: {
+    minHeight: '280px',
+    padding: '24px',
+  },
+}))
 
 export const FeaturedProjectScreenshotImage = styled('img')({
   width: '100%',
-  height: '100%',
-  objectFit: 'cover',
+  height: 'auto',
   borderRadius: '8px',
-  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
+  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.1)',
+  border: `1px solid ${colors.borderLight}`,
 })
 
 export const BrowserWindowMockupContainer = styled(Box)({
@@ -251,13 +240,17 @@ export const FeaturedProjectTechStackText = styled('span')({
   color: colors.textTertiary,
 })
 
-export const FeaturedProjectThumbnailStrip = styled(Box)({
+export const FeaturedProjectThumbnailStrip = styled(Box)(({ theme }) => ({
   display: 'flex',
   gap: '12px',
   padding: '16px 40px',
   borderTop: `1px solid ${colors.borderLight}`,
   background: colors.cardBackground,
-})
+  [theme.breakpoints.down('sm')]: {
+    padding: '12px 24px',
+    gap: '8px',
+  },
+}))
 
 export const FeaturedProjectThumbnailStatic = styled(Box)({
   flex: 1,
@@ -319,7 +312,7 @@ export const ThumbnailFallbackLine = styled(Box)({
   '&:nth-of-type(3)': { width: '40%' },
 })
 
-export const ProjectsAndTestimonialsGrid = styled(Box)<AnimatedProps>(({ theme, isVisible }) => ({
+export const ProjectsAndTestimonialsGrid = styled(Box)<AnimatedSectionProps>(({ theme, isVisible }) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
   gap: '24px',
@@ -328,6 +321,128 @@ export const ProjectsAndTestimonialsGrid = styled(Box)<AnimatedProps>(({ theme, 
   transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: '1fr',
+  },
+}))
+
+export const ProjectsGrid = styled(Box)<AnimatedSectionProps>(({ theme, isVisible }) => ({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  gap: '24px',
+  opacity: isVisible ? 1 : 0,
+  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+  transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
+  [theme.breakpoints.down('md')]: {
+    gridTemplateColumns: '1fr',
+  },
+}))
+
+export const ProjectsCarouselContainer = styled(Box)<AnimatedSectionProps>(({ isVisible }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  opacity: isVisible ? 1 : 0,
+  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+  transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s',
+}))
+
+export const ProjectsCarouselWrapper = styled(Box)({
+  position: 'relative',
+  width: '100%',
+  maxWidth: '500px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+})
+
+export const ProjectsCarouselInner = styled(Box)<{ slideDirection?: 'left' | 'right' | null }>(({ slideDirection }) => ({
+  width: '100%',
+  overflow: 'hidden',
+  '& > article': {
+    animation: slideDirection ? `slideIn${slideDirection === 'left' ? 'FromLeft' : 'FromRight'} 0.3s ease-out` : 'none',
+  },
+  '@keyframes slideInFromLeft': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(-30px)',
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0)',
+    },
+  },
+  '@keyframes slideInFromRight': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(30px)',
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0)',
+    },
+  },
+}))
+
+export const CarouselNavButton = styled('button')(({ theme }) => ({
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  background: colors.cardBackground,
+  border: `1px solid ${colors.borderLight}`,
+  borderRadius: '50%',
+  width: '44px',
+  height: '44px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer',
+  fontSize: '1.25rem',
+  color: colors.textPrimary,
+  transition: 'all 0.2s ease',
+  zIndex: 10,
+  '&:hover': {
+    background: colors.pillBackgroundHover,
+    transform: 'translateY(-50%) scale(1.05)',
+  },
+  '&:disabled': {
+    opacity: 0.3,
+    cursor: 'not-allowed',
+    '&:hover': {
+      transform: 'translateY(-50%)',
+    },
+  },
+  [theme.breakpoints.down('sm')]: {
+    width: '36px',
+    height: '36px',
+    fontSize: '1rem',
+  },
+}))
+
+export const CarouselPrevButton = styled(CarouselNavButton)({
+  left: '-60px',
+})
+
+export const CarouselNextButton = styled(CarouselNavButton)({
+  right: '-60px',
+})
+
+export const CarouselDots = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '8px',
+  marginTop: '20px',
+})
+
+export const CarouselDot = styled('button')<{ isActive: boolean }>(({ isActive }) => ({
+  width: '8px',
+  height: '8px',
+  borderRadius: '50%',
+  border: 'none',
+  background: isActive ? colors.brandPrimary : colors.borderMedium,
+  cursor: 'pointer',
+  padding: 0,
+  transition: 'all 0.2s ease',
+  '&:hover': {
+    background: isActive ? colors.brandPrimary : colors.borderLight,
   },
 }))
 
@@ -343,29 +458,31 @@ export const ProjectCardContainer = styled('article')({
   },
 })
 
-export const ProjectCardImageContainer = styled(Box)({
-  background: `repeating-linear-gradient(
-    -45deg,
-    ${colors.cardBackground},
-    ${colors.cardBackground} 6px,
-    ${colors.sectionBackgroundAlternate} 6px,
-    ${colors.sectionBackgroundAlternate} 12px
-  )`,
+export const ProjectCardImageContainer = styled(Box)<{ isMobileApp?: boolean }>(({ isMobileApp }) => ({
+  background: `linear-gradient(135deg, ${colors.sectionBackgroundAlternate} 0%, rgba(111, 164, 142, 0.3) 100%)`,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '12px',
-  '& > img': {
-    aspectRatio: '16 / 9',
-  },
-})
+  padding: '16px',
+  minHeight: '420px',
+}))
 
-export const ProjectCardScreenshotImage = styled('img')({
+export const ProjectCardScreenshotImage = styled('img')<{ isMobileApp?: boolean }>(({ isMobileApp }) => ({
   width: '100%',
+  height: 'auto',
   aspectRatio: '16 / 9',
   objectFit: 'cover',
   borderRadius: '4px',
-})
+  ...(isMobileApp && {
+    width: 'auto',
+    maxWidth: '180px',
+    height: '380px',
+    aspectRatio: 'auto',
+    objectFit: 'contain',
+    borderRadius: '16px',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+  }),
+}))
 
 export const ProjectImageFallbackText = styled('span')({
   fontFamily: fontFamilyMonospace,

@@ -69,7 +69,7 @@ export function Skills() {
           eyebrow='Skills'
           title={
             <>
-              What's in <em>the toolbox</em>
+              <em>The toolbox</em>
             </>
           }
           titleId='skills-heading'

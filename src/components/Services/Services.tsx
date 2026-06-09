@@ -5,7 +5,6 @@ import {
   ServicesContentContainer,
   ServicesThreeColumnGrid,
   ServiceOfferingCard,
-  ServiceIndexNumberLabel,
   ServiceCardTitle,
   ServiceCardDescription,
 } from './styles'
@@ -62,7 +61,7 @@ export function Services() {
           eyebrow='Services'
           title={
             <>
-              Stuff I love <em>working on</em>
+              <em>Working on</em>
             </>
           }
           titleId='services-heading'
@@ -71,7 +70,6 @@ export function Services() {
         <ServicesThreeColumnGrid isVisible={isVisible}>
           {serviceOfferingsData.map((serviceOffering) => (
             <ServiceOfferingCard key={serviceOffering.serviceTitle}>
-              <ServiceIndexNumberLabel></ServiceIndexNumberLabel>
               <ServiceCardTitle variant='h3'>
                 {serviceOffering.serviceTitle}
               </ServiceCardTitle>

@@ -1,33 +1,17 @@
 import { Box, Typography, styled } from '@mui/material'
 import {
-  fontFamilyMonospace,
   fontFamilySansSerif,
   fontFamilySerif,
   colors,
-  containerMaxWidthDesktop,
-  containerMaxWidthMobile,
 } from '../../theme'
+import { AnimatedSectionProps } from '../../types/styled'
+import { SectionWrapper, SectionContentContainer } from '../../styles/SharedLayoutComponents'
 
-export interface AnimatedProps {
-  isVisible: boolean
-}
+export const ServicesSectionWrapper = SectionWrapper
 
-export const ServicesSectionWrapper = styled('section')(({ theme }) => ({
-  padding: '96px 0',
-  [theme.breakpoints.down('md')]: {
-    padding: '64px 0',
-  },
-}))
+export const ServicesContentContainer = SectionContentContainer
 
-export const ServicesContentContainer = styled(Box)(({ theme }) => ({
-  width: containerMaxWidthDesktop,
-  margin: '0 auto',
-  [theme.breakpoints.down('sm')]: {
-    width: containerMaxWidthMobile,
-  },
-}))
-
-export const ServicesThreeColumnGrid = styled(Box)<AnimatedProps>(
+export const ServicesThreeColumnGrid = styled(Box)<AnimatedSectionProps>(
   ({ theme, isVisible }) => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -48,6 +32,7 @@ export const ServicesThreeColumnGrid = styled(Box)<AnimatedProps>(
 
 export const ServiceOfferingCard = styled('article')(({ theme }) => ({
   padding: '32px',
+  paddingTop: '48px',
   borderRight: `1px solid ${colors.borderLight}`,
   borderBottom: `1px solid ${colors.borderLight}`,
   background: colors.cardBackground,
@@ -85,18 +70,6 @@ export const ServiceOfferingCard = styled('article')(({ theme }) => ({
     },
   },
 }))
-
-export const ServiceIndexNumberLabel = styled('span')({
-  fontFamily: fontFamilyMonospace,
-  fontSize: '0.6875rem',
-  color: colors.textTertiary,
-  marginBottom: '16px',
-  display: 'block',
-  transition: 'color 0.2s ease',
-  'article:hover &': {
-    color: colors.accentGreen,
-  },
-})
 
 export const ServiceCardTitle = styled(Typography)({
   fontFamily: fontFamilySansSerif,

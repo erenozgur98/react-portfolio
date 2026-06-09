@@ -1,11 +1,8 @@
 import { Box, Typography, styled } from '@mui/material'
 import { fontFamilyMonospace, fontFamilySansSerif, colors } from '../../theme'
+import { AnimatedSectionProps } from '../../types/styled'
 
-export interface AnimatedProps {
-  isVisible: boolean
-}
-
-export const SectionHeaderWrapper = styled(Box)<AnimatedProps>(({ theme, isVisible }) => ({
+export const SectionHeaderWrapper = styled(Box)<AnimatedSectionProps>(({ theme, isVisible }) => ({
   display: 'grid',
   gridTemplateColumns: '200px 1fr',
   gap: '24px',
